@@ -44,18 +44,20 @@ require("dapui").setup({
   layouts = {
     {
       elements = {
+        --"repl",
+        --"watches",
+        --"scopes",
         "repl",
         "stacks",
-        "watches",
       },
-      size = 40,
+      size = 28,
       position = "left",
     },
     {
       elements = {
-        "scopes",
+        "scopes"
       },
-      size = 10,
+      size = 6,
       position = "bottom",
     },
   },

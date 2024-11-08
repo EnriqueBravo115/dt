@@ -22,7 +22,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- TELESCOPE
-vim.keymap.set("n", "<leader>lc", "<cmd>:lua require'telescope'.extensions.dap.commands{}<CR>")
+vim.keymap.set("n", "<leader>lc", "<cmd>lua require'telescope'.extensions.dap.commands{}<CR>")
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
 vim.keymap.set("n", "<leader>bf", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
 vim.keymap.set('n', '<leader>fo', "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
@@ -39,15 +39,6 @@ vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
 vim.keymap.set("n", "<leader>5", function() ui.nav_file(5) end)
 vim.keymap.set("n", "<leader>6", function() ui.nav_file(6) end)
 
--- Color line yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
 -- Exit from window
 vim.api.nvim_exec([[tnoremap <esc><esc> <C-\><C-n>:wincmd w<CR> ]], false)
 
@@ -59,24 +50,15 @@ set("n", "<leader>dso", function() require("dap").step_over() end)
 set("n", "<leader>dsi", function() require("dap").step_into() end)
 set("n", "<leader>dr", function() require("dap").repl.toggle() end)
 
--- DAP java test
-set("n", "<leader>df", function()
-  if vim.bo.modified then
-    vim.cmd("w")
-  end
-  jdtls.test_class()
-end, opts)
+-- Java
+set("n", "<leader>df", "<cmd>:lua require'jdtls'.test_class()<CR>")
+set("n", "<leader>dn", "<cmd>:lua require'jdtls'.test_nearest_method()<CR>")
 
-set("n", "<leader>dn", function()
-  if vim.bo.modified then
-    vim.cmd("w")
-  end
-  jdtls.test_nearest_method({
-    config_overrides = {
-      stepFilters = {
-        skipClasses = { "$JDK", "junit.*" },
-        skipSynthetics = true
-      }
-    }
-  })
-end, opts)
+-- Color line yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

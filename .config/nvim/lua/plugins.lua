@@ -13,8 +13,8 @@ return require("packer").startup(function(use)
   use "nvim-lualine/lualine.nvim"
   use "stevearc/dressing.nvim"
   use "jose-elias-alvarez/null-ls.nvim"
-  use "rose-pine/neovim"
   use "mfussenegger/nvim-jdtls"
+  use "lukas-reineke/indent-blankline.nvim"
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.8", requires = { { "nvim-lua/plenary.nvim" } } })
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 

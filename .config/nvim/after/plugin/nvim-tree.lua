@@ -9,6 +9,7 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = false,
+    git_ignored = false,
   },
   renderer = {
     icons = {
@@ -22,9 +23,10 @@ require("nvim-tree").setup({
           empty_open = ""
         },
         git = {
-          staged = "",
-          untracked = "",
-          unstaged = ""
+          staged = "+",
+          untracked = "?",
+          unstaged = "-",
+          ignored = "x",
         }
       }
     }

@@ -1,0 +1,9 @@
+set icons
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
+cmd mkdir $mkdir -p "$@"
+
+map . set hidden!
+map <enter> open
+map a push :mkdir<space>""<left>
+map V push :!nvim<space>

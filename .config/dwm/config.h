@@ -1,4 +1,4 @@
-#define TERMINAL "alacritty"
+#define TERMINAL "kitty"
 #define TERMCLASS "St"
 #define BROWSER "brave"
 
@@ -13,7 +13,7 @@ static int smartgaps          = 0;
 static int showbar            = 1;
 static int topbar             = 1;
 static char *fonts[]          = { "Iosevka Nerd Font:size=10", "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"  };
-static char normbgcolor[]      = "#2e3440";
+static char normbgcolor[]      = "#303030";
 static char normbordercolor[]  = "#444444";
 static char normfgcolor[]      = "#bbbbbb";
 static char selfgcolor[]       = "#eeeeee";
@@ -41,7 +41,6 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,          1 << 8,      0,           0,          0,         -1 },
 	{ TERMCLASS,  NULL,       NULL,       	 0,           0,           1,          0,         -1 },
 	{ NULL,       NULL,       "Event Tester", 0,          0,           0,          1,         -1 },
 	{ TERMCLASS,  "floatterm", NULL,       	 0,           1,           1,          0,         -1 },
@@ -160,11 +159,6 @@ static const Key keys[] = {
 	{ MODKEY,			    XK_x,          incrgaps,               {.i = -3 } },
 	{ MODKEY,			    XK_g,          togglebar,              {0} },
 
-	{ MODKEY,			    XK_Left,       focusmon,               {.i = -1 } },
-	{ MODKEY|ShiftMask,		XK_Left,       tagmon,                 {.i = -1 } },
-	{ MODKEY,			    XK_Right,      focusmon,               {.i = +1 } },
-	{ MODKEY|ShiftMask,		XK_Right,      tagmon,                 {.i = +1 } },
-
     { MODKEY|ShiftMask,		XK_Page_Up,    shifttag,               { .i = -1 } },
     { MODKEY|ShiftMask,		XK_Page_Down,  shifttag,               { .i = +1 } },
     { MODKEY,			    XK_space,      zoom,                   {0} },
@@ -172,22 +166,32 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,     XK_q,          quit,                   { 0 } },
     { MODKEY,               XK_Tab,        shiftview,              { .i = +1 } },
     { MODKEY|ShiftMask,     XK_Tab,        shiftview,              { .i = -1 } },
-    { MODKEY,               XK_c,          shiftview,              { .i = 1 } },
 
-    { MODKEY|ShiftMask,     XK_s,         spawn,         SHCMD("exec slock") },
-    { MODKEY,			    XK_n,         spawn,         SHCMD("exec nemo") },
-    { MODKEY,               XK_e,         spawn,         SHCMD("exec emacs") },
-    { MODKEY,               XK_o,         spawn,         SHCMD("exec feh --bg-fill --randomize ~/dw/wallpapers/*") },
-    { MODKEY,               XK_b,         spawn,         SHCMD("exec blueman-manager") },
-    { MODKEY,               XK_p,         spawn,         SHCMD("exec maim -s ~/docus/org/img/$(date +%H:%M:%S).png") },
-    { MODKEY|ShiftMask,     XK_p,         spawn,         SHCMD("exec maim -s ~/$(date +%H:%M:%S).png") },
+    { MODKEY,               XK_c,            spawn,         {.v = (const char*[]){ TERMINAL, "-e", "bc", "-l", NULL } } },
+    { MODKEY,               XK_n,            spawn,         SHCMD("exec nemo") },
+    { MODKEY,               XK_m,            spawn,         SHCMD("exec redshift -O 3500") },
+    { MODKEY|ShiftMask,     XK_m,            spawn,         SHCMD("exec redshift -x") },
+    { MODKEY|ShiftMask,     XK_s,            spawn,         SHCMD("exec slock") },
+    { MODKEY,               XK_e,            spawn,         SHCMD("exec emacs") },
+    { MODKEY,               XK_o,            spawn,         SHCMD("exec obs") },
+    { MODKEY,               XK_v,            spawn,         SHCMD("exec feh --bg-fill --randomize ~/dw/wallpapers/*") },
+    { MODKEY,               XK_b,            spawn,         SHCMD("exec blueman-manager") },
+    { MODKEY,               XK_p,            spawn,         SHCMD("exec maim -s ~/dx/notes/img/$(date +%H:%M:%S).png") },
+    { MODKEY|ShiftMask,     XK_p,            spawn,         SHCMD("exec maim -s ~/$(date +%H:%M:%S).png") },
+    { MODKEY,		        XK_comma,        spawn,         SHCMD("mpc toggle; pauseallmpv") },
+    { MODKEY,		    	XK_period,       spawn,         {.v = (const char*[]){ "mpc", "next", NULL } } },
+	{ MODKEY|ShiftMask,		XK_period,       spawn,         {.v = (const char*[]){ "mpc", "prev", NULL } } },
+    { MODKEY,			    XK_Right,        spawn,         {.v = (const char*[]){ "mpc", "volume", "+10", NULL } } },
+	{ MODKEY,			    XK_Left,         spawn,         {.v = (const char*[]){ "mpc", "volume", "-10", NULL } } },
+    { MODKEY,			    XK_braceleft,    spawn,         {.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
+	{ MODKEY,			    XK_braceright,   spawn,         {.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
+
     { 0,                    XK_Print,     spawn,         SHCMD("exec maim ~/$(date +%H:%M:%S).png") },
-
-	{ 0,                    XF86XK_AudioMute,                         spawn,                  {.v = mutevol } },
-	{ 0,                    XF86XK_AudioRaiseVolume,                  spawn,                  {.v = upvol } },
-	{ 0,                    XF86XK_AudioLowerVolume,                  spawn,                  {.v = downvol } },
-    { 0,                    XF86XK_MonBrightnessUp,                   spawn,                  { .v = (const char*[]) { "sudo", "xbacklight", "-inc", "10", NULL } } },
-    { 0,                    XF86XK_MonBrightnessDown,                 spawn,                  { .v = (const char*[]) { "sudo", "xbacklight", "-dec", "10", NULL } } },
+	{ 0,                    XF86XK_AudioMute,            spawn,                  {.v = mutevol } },
+	{ 0,                    XF86XK_AudioRaiseVolume,     spawn,                  {.v = upvol } },
+	{ 0,                    XF86XK_AudioLowerVolume,     spawn,                  {.v = downvol } },
+    { 0,                    XF86XK_MonBrightnessUp,      spawn,                  { .v = (const char*[]) { "sudo", "xbacklight", "-inc", "10", NULL } } },
+    { 0,                    XF86XK_MonBrightnessDown,    spawn,                  { .v = (const char*[]) { "sudo", "xbacklight", "-dec", "10", NULL } } },
 };
 
 static const Button buttons[] = {

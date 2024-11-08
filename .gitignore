@@ -58,3 +58,6 @@
 
 # NVIM
 .config/nvim/plugin/packer_compiled.lua
+
+# NCMPCPP
+.config/ncmpcpp/error.log

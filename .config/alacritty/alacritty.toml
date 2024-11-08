@@ -1,8 +1,0 @@
-[font]
-normal = { family = "Iosevka Nerd Font", style = "Mono" }
-
-[colors.primary]
-background = "#2e3440"
-
-[window]
-opacity = 0.75
