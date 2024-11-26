@@ -1,9 +1,22 @@
 #!/bin/bash
 
-volume="$(mpc volume | awk '{print $2}')"
+volume="$(mpc volume)"
+if [[ "$volume" =~ ([0-9]+)% ]]; then
+    volume="${BASH_REMATCH[1]}"
+fi
+
 current_title="$(mpc current | awk -F ' - ' '{print $2}')"
 
+status="$(mpc status %state%)"
+if [ "$status" == "playing" ]; then
+    status="󰐊"
+elif [ "$status" == "paused" ]; then
+    status="󰏤"
+else
+    status="?"
+fi
+
 if [ -n "$volume" ] && [ -n "$current_title" ]; then
-    title="$volume - $current_title"
-    echo "^c#cf87e8^󰝚  $title  "
+    title="$status $volume% - $current_title"
+    echo "^c#cf87e8^ $title  "
 fi

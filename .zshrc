@@ -11,6 +11,7 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias c="clear"
 alias lf="lfub"
+alias n="ncmpcpp"
 
 bindkey -v
 export KEYTIMEOUT=1

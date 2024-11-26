@@ -17,6 +17,7 @@ return require("packer").startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.8", requires = { { "nvim-lua/plenary.nvim" } } })
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+  use "ellisonleao/gruvbox.nvim"
 
   use { "norcalli/nvim-colorizer.lua",
     config = function()

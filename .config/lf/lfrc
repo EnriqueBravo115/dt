@@ -3,6 +3,7 @@ set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 cmd mkdir $mkdir -p "$@"
 
+map g top
 map . set hidden!
 map <enter> open
 map a push :mkdir<space>""<left>

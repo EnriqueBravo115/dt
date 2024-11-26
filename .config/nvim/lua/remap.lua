@@ -11,6 +11,8 @@ local ui = require("harpoon.ui")
 vim.keymap.set("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>ñ", "<cmd>:MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>tn", "<cmd>:tabnew<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>:tabnext<CR>")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<C-p>", "<cmd>cnext<CR>zz")
