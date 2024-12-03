@@ -12,6 +12,7 @@ alias v="nvim"
 alias c="clear"
 alias lf="lfub"
 alias n="ncmpcpp"
+alias g="lf /mnt/disk/"
 
 bindkey -v
 export KEYTIMEOUT=1
