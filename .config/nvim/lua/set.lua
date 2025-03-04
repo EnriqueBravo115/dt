@@ -20,4 +20,7 @@ vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
+--vim.opt.conceallevel = 2
+--vim.cmd("set concealcursor=nc")
+
 vim.cmd("highlight ColorColumn guibg=#657b83")

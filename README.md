@@ -58,3 +58,6 @@
 - mediainfo
 - ffmpegthumbnailer
 - ueberzug
+- yt-dlp
+- spek
+- streamlink

@@ -4,7 +4,7 @@ return require("packer").startup(function(use)
   -- GENERAL
   use "nvim-tree/nvim-tree.lua"
   use "nvim-tree/nvim-web-devicons"
-  use "jiangmiao/auto-pairs"
+  --use "jiangmiao/auto-pairs"
   use "tpope/vim-fugitive"
   use "vimwiki/vimwiki"
   use "lewis6991/gitsigns.nvim"
@@ -17,7 +17,7 @@ return require("packer").startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.8", requires = { { "nvim-lua/plenary.nvim" } } })
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-  use "ellisonleao/gruvbox.nvim"
+  use "rebelot/kanagawa.nvim"
 
   use { "norcalli/nvim-colorizer.lua",
     config = function()

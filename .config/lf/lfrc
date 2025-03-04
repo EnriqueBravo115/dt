@@ -8,3 +8,4 @@ map . set hidden!
 map <enter> open
 map a push :mkdir<space>""<left>
 map V push :!nvim<space>
+map D delete

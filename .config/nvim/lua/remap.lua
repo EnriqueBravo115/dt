@@ -10,15 +10,18 @@ local ui = require("harpoon.ui")
 -- COMMANDS
 vim.keymap.set("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
-vim.keymap.set("n", "<leader>ñ", "<cmd>:MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>r", "<cmd>:MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>g", "<cmd>:G<CR>")
 vim.keymap.set("n", "<leader>tn", "<cmd>:tabnew<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>:tabnext<CR>")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<C-p>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-q>", "<cmd>cprev<CR>zz")
-vim.keymap.set("v", "j", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "k", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
@@ -32,7 +35,7 @@ vim.keymap.set("n", "<leader>ww", function() builtin.grep_string({ search = vim.
 
 -- Harpoon
 vim.keymap.set("n", "<C-s>", mark.add_file)
-vim.keymap.set("n", "<C-d>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<C-f>", ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)

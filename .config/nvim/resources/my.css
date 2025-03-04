@@ -12,7 +12,11 @@ em {
 }
 
 strong {
-    color: #ff335c;
+    color: #ff69b4;
+}
+
+em strong {
+  color: #FAB795;
 }
 
 .katex {
