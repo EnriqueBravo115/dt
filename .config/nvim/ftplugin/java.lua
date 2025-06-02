@@ -46,7 +46,7 @@ local config = {
           },
           {
             name = "JavaSE-17",
-            path = "/home/nullboy/.sdkman/candidates/java/17.0.11-tem"
+            path = "/home/nullboy/.sdkman/candidates/java/17.0.4-tem"
           },
         },
         updateBuildConfiguration = "interactive",

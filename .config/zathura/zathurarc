@@ -4,6 +4,3 @@ set recolor-lightcolor \#313233
 set recolor-darkcolor \#8B8D8F
 set recolor-keephue
 set default-bg \#313233
-
-set pages-per-row 1
-set cache-size 50

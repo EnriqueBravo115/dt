@@ -31,7 +31,7 @@ require("lualine").setup {
   options = {
     theme = custom,
     component_separators = "",
-    section_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     always_divide_middle = false,
     refresh = {
       statusline = 50,
@@ -40,7 +40,7 @@ require("lualine").setup {
     }
   },
   sections = {
-    lualine_a = { { "mode", icon = "" } },
+    lualine_a = { { "mode", icon = "" } },
     lualine_b = { { "branch", icon = "󰘬" }, },
     lualine_c = { { "filename" }, { "diff", symbols = { added = "󰋠 ", modified = "󱗜 ", removed = "󰍵 " } } },
     lualine_x = { "diagnostics" },

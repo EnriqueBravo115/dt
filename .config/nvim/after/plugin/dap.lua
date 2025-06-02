@@ -50,14 +50,14 @@ require("dapui").setup({
         "repl",
         "stacks",
       },
-      size = 28,
+      size = 35,
       position = "left",
     },
     {
       elements = {
         "scopes"
       },
-      size = 6,
+      size = 10,
       position = "bottom",
     },
   },

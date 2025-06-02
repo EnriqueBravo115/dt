@@ -19,25 +19,6 @@ em strong {
   color: #FAB795;
 }
 
-.katex {
-    margin: 0 2px;
-    padding: 0 5px;
-    white-space: nowrap;
-    border: 1px solid #eaeaea;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-}
-
-code {
-    margin: 0 2px;
-    padding: 0 5px;
-    white-space: nowrap;
-    border: 1px solid #eaeaea;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    font-family: 'Iosevka Nerd Font';
-}
-
 img {
     display: block;
     margin: auto;
@@ -46,3 +27,14 @@ img {
 h1 {
     text-align: center;
 }
+
+code {
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+    border: 1px solid #eaeaea;
+    background-color: #2F333A;
+    border-radius: 3px;
+    font-family: 'Iosevka Nerd Font' !important;
+}
+

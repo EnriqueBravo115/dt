@@ -9,3 +9,10 @@ map <enter> open
 map a push :mkdir<space>""<left>
 map V push :!nvim<space>
 map D delete
+
+map o ${{
+    case $(file --mime-type -b "$f") in
+        application/vnd.rar) zathura "$f" ;;
+        *) lf -remote "send $id select \"$f\"" ;;
+    esac
+}}

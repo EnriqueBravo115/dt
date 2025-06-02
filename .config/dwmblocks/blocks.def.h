@@ -1,7 +1,6 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
     {"", "/home/nullboy/dotfiles/.config/dwmblocks/scripts/spotify", 5,	0},
-    {"^c#80a0ff^", "/home/nullboy/dotfiles/.config/dwmblocks/scripts/bluetooth", 20, 0},
     {"", "/home/nullboy/dotfiles/.config/dwmblocks/scripts/storage", 500, 0},
     {"", "/home/nullboy/dotfiles/.config/dwmblocks/scripts/light", 10, 0},
     {"", "/home/nullboy/dotfiles/.config/dwmblocks/scripts/wifi", 5, 0},

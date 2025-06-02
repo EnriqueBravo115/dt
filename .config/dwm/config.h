@@ -1,6 +1,6 @@
 #define TERMINAL "kitty"
 #define TERMCLASS "St"
-#define BROWSER "brave"
+#define BROWSER "firefox"
 
 static unsigned int borderpx  = 2;
 static unsigned int snap      = 32;
@@ -37,7 +37,7 @@ static Sp scratchpads[] = {
 	{"spcalc",      spcmd2},
 };
 
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "󰈹", "", "", "", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
@@ -182,17 +182,17 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,     XK_p,            spawn,         SHCMD("exec maim -s ~/$(date +%H:%M:%S).png") },
     { MODKEY,		        XK_comma,        spawn,         SHCMD("mpc toggle; pauseallmpv") },
     { MODKEY,		    	XK_period,       spawn,         {.v = (const char*[]){ "mpc", "next", NULL } } },
-	{ MODKEY|ShiftMask,		XK_period,       spawn,         {.v = (const char*[]){ "mpc", "prev", NULL } } },
-    { MODKEY,			    XK_Right,        spawn,         {.v = (const char*[]){ "mpc", "volume", "+10", NULL } } },
-	{ MODKEY,			    XK_Left,         spawn,         {.v = (const char*[]){ "mpc", "volume", "-10", NULL } } },
-    { MODKEY,			    XK_F6,           spawn,         {.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
-	{ MODKEY,			    XK_F7,           spawn,         {.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
+    { MODKEY,		        XK_F5,           spawn,         {.v = (const char*[]){ "mpc", "prev", NULL } } },
+    { MODKEY,			    XK_F11,          spawn,         {.v = (const char*[]){ "mpc", "volume", "+10", NULL } } },
+	{ MODKEY,			    XK_F12,          spawn,         {.v = (const char*[]){ "mpc", "volume", "-10", NULL } } },
+    { MODKEY,			    XK_F9,           spawn,         {.v = (const char*[]){ "mpc", "seek", "-10", NULL } } },
+	{ MODKEY,			    XK_F10,          spawn,         {.v = (const char*[]){ "mpc", "seek", "+10", NULL } } },
 
-	{ MODKEY,               XK_F9,            spawn,                  {.v = mutevol } },
-	{ MODKEY,               XK_F11,           spawn,                  {.v = upvol } },
-	{ MODKEY,               XK_F10,           spawn,                  {.v = downvol } },
-    { 0,                    XF86XK_MonBrightnessUp,      spawn,                  { .v = (const char*[]) { "sudo", "xbacklight", "-inc", "10", NULL } } },
-    { 0,                    XF86XK_MonBrightnessDown,    spawn,                  { .v = (const char*[]) { "sudo", "xbacklight", "-dec", "10", NULL } } },
+	{ MODKEY,               XK_F7,           spawn,                  {.v = mutevol } },
+	{ MODKEY,               XK_F8,           spawn,                  {.v = upvol } },
+	{ MODKEY,               XK_F6,           spawn,                  {.v = downvol } },
+    { 0,                    XF86XK_MonBrightnessUp,      spawn,      { .v = (const char*[]) { "sudo", "xbacklight", "-inc", "10", NULL } } },
+    { 0,                    XF86XK_MonBrightnessDown,    spawn,      { .v = (const char*[]) { "sudo", "xbacklight", "-dec", "10", NULL } } },
 };
 
 static const Button buttons[] = {
