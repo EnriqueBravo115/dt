@@ -1,6 +1,6 @@
 #define TERMINAL "kitty"
 #define TERMCLASS "St"
-#define BROWSER "firefox"
+#define BROWSER "brave"
 
 static unsigned int borderpx  = 2;
 static unsigned int snap      = 32;
@@ -37,7 +37,7 @@ static Sp scratchpads[] = {
 	{"spcalc",      spcmd2},
 };
 
-static const char *tags[] = { "󰈹", "", "", "", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */

@@ -134,6 +134,6 @@ config["on_attach"] = function(client, bufnr)
   require("jdtls").setup_dap({ hotcodereplace = "auto" })
 end
 
-require("dap.ext.vscode").load_launchjs()
+--require("dap.ext.vscode").load_launchjs()
 
 jdtls.start_or_attach(config)

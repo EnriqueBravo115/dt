@@ -1,16 +1,11 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-local jdtls = require("jdtls")
-local set = vim.keymap.set
+local builtin = require('telescope.builtin')
 local opts = { noremap = true, silent = true }
-local builtin = require("telescope.builtin")
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
--- COMMANDS
 vim.keymap.set("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", "<cmd>:MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>gs", "<cmd>:G<CR>")
 vim.keymap.set("n", "<leader>gp", "<cmd>:G push<CR>")
 vim.keymap.set("n", "<leader>tn", "<cmd>:tabnew<CR>")
@@ -29,12 +24,15 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gu", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "<leader>gh", "<cmd>diffget //3<CR>")
 
--- TELESCOPE
-vim.keymap.set("n", "<leader>lc", "<cmd>lua require'telescope'.extensions.dap.commands{}<CR>")
-vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
-vim.keymap.set("n", "<leader>bf", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
-vim.keymap.set('n', '<leader>fo', "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
-vim.keymap.set("n", "<leader>ww", function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
+-- Telescope
+vim.keymap.set("n", "<leader>ff",
+  "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
+vim.keymap.set("n", "<leader>fg",
+  "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
+vim.keymap.set("n", "<leader>bf",
+  "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
+vim.keymap.set('n', '<leader>ps', function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
+vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
 -- Harpoon
 vim.keymap.set("n", "<C-s>", mark.add_file)
@@ -49,18 +47,6 @@ vim.keymap.set("n", "<leader>6", function() ui.nav_file(6) end)
 
 -- Exit from window
 vim.api.nvim_exec([[tnoremap <esc><esc> <C-\><C-n>:wincmd w<CR> ]], false)
-
--- DAP
-set("n", "<leader>as", vim.diagnostic.setloclist)
-set("n", "<leader>dc", function() require("dap").continue() end)
-set("n", "<leader>dt", function() require("dap").toggle_breakpoint() end)
-set("n", "<leader>dso", function() require("dap").step_over() end)
-set("n", "<leader>dsi", function() require("dap").step_into() end)
-set("n", "<leader>dr", function() require("dap").repl.toggle() end)
-
--- Java
-set("n", "<leader>df", "<cmd>:lua require'jdtls'.test_class()<CR>")
-set("n", "<leader>dn", "<cmd>:lua require'jdtls'.test_nearest_method()<CR>")
 
 -- Color line yank
 vim.api.nvim_create_autocmd('TextYankPost', {
