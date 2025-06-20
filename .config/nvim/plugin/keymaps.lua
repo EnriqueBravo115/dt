@@ -1,10 +1,13 @@
 local builtin = require('telescope.builtin')
+local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", "<cmd>:MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>ww", "<cmd>:w<CR>")
+vim.keymap.set("n", "<leader>qq", "<cmd>:q<CR>")
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>gs", "<cmd>:G<CR>")
 vim.keymap.set("n", "<leader>gp", "<cmd>:G push<CR>")
@@ -12,6 +15,7 @@ vim.keymap.set("n", "<leader>tn", "<cmd>:tabnew<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>:tabnext<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<leader>cc", "<cmd>:Clj<CR>")
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<C-t>", "<cmd>cnext<CR>zz")
@@ -45,6 +49,18 @@ vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
 vim.keymap.set("n", "<leader>5", function() ui.nav_file(5) end)
 vim.keymap.set("n", "<leader>6", function() ui.nav_file(6) end)
 
+-- DAP
+set("n", "<leader>as", vim.diagnostic.setloclist)
+set("n", "<leader>dc", function() require("dap").continue() end)
+set("n", "<leader>dt", function() require("dap").toggle_breakpoint() end)
+set("n", "<leader>dso", function() require("dap").step_over() end)
+set("n", "<leader>dsi", function() require("dap").step_into() end)
+set("n", "<leader>dr", function() require("dap").repl.toggle() end)
+
+-- Java
+set("n", "<leader>df", "<cmd>:lua require'jdtls'.test_class()<CR>")
+set("n", "<leader>dn", "<cmd>:lua require'jdtls'.test_nearest_method()<CR>")
+
 -- Exit from window
 vim.api.nvim_exec([[tnoremap <esc><esc> <C-\><C-n>:wincmd w<CR> ]], false)
 
@@ -56,3 +72,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_user_command(
+  'ResetComponentRepl',
+  function()
+    -- Enviar el comando al REPL de Clojure conectado
+    vim.cmd('ConjureEval (in-ns \'dev)')
+    vim.cmd('ConjureEval (component-repl/reset)')
+  end,
+  { desc = 'Reset component REPL in dev namespace' }
+)

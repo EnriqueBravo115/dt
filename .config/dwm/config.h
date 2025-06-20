@@ -1,6 +1,6 @@
 #define TERMINAL "kitty"
 #define TERMCLASS "St"
-#define BROWSER "brave"
+#define BROWSER "firefox"
 
 static unsigned int borderpx  = 2;
 static unsigned int snap      = 32;

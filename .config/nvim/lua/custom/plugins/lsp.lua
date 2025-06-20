@@ -42,7 +42,6 @@ return {
       virtual_text = false,
     })
 
-
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -73,10 +72,6 @@ return {
         "typescriptreact",
         "javascriptreact",
         "css",
-        "sass",
-        "scss",
-        "less",
-        "svelte",
       },
     })
 
@@ -84,14 +79,9 @@ return {
       capabilities = capabilities,
       filetypes = {
         "css",
-        "eruby",
         "html",
         "javascript",
         "javascriptreact",
-        "less",
-        "sass",
-        "scss",
-        "pug",
         "typescriptreact",
       },
       init_options = {
@@ -105,11 +95,6 @@ return {
         syntaxProfiles = {},
         variables = {},
       },
-    })
-
-    lspconfig.denols.setup({
-      capabilities = capabilities,
-      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
     })
 
     lspconfig.ts_ls.setup({
@@ -147,7 +132,7 @@ return {
       },
     })
 
-    -- Add other LSP servers as needed, e.g., gopls, eslint, html, etc.
     lspconfig.gopls.setup({ capabilities = capabilities })
+    lspconfig.clojure_lsp.setup({ capabilities = capabilities })
   end,
 }

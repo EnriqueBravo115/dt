@@ -11,9 +11,8 @@ local workspace_folder = home .. "/.cache/jdtls/workspace" .. vim.fn.fnamemodify
 
 local bundles = {
   vim.fn.glob(
-    home ..
-    "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-0.53.0.jar",
-    "\n")
+    home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+    1),
 }
 
 vim.list_extend(bundles,
@@ -32,6 +31,7 @@ local config = {
       allow_incremental_sync = true,
     },
     init_options = {
+      bundles = bundles,
     },
     java = {
       configuration = {
@@ -103,7 +103,10 @@ local config = {
         },
         useBlocks = true,
       },
-      extendedClientCapabilities = extendedClientCapabilities
+      extendedClientCapabilities = extendedClientCapabilities,
+      test = {
+        enabled = true,
+      },
     },
   },
 
@@ -121,8 +124,8 @@ local config = {
     "-javaagent:" .. home .. "/.config/lombok.jar",
     "-jar",
     vim.fn.glob(
-      "/home/nullboy/.config/jdtls1.44/plugins/org.eclipse.equinox.launcher_*.jar"),
-    "-configuration", "/home/nullboy/.config/jdtls1.44/config_linux/",
+      "/home/nullboy/.config/jdtls1.46/plugins/org.eclipse.equinox.launcher_*.jar"),
+    "-configuration", "/home/nullboy/.config/jdtls1.46/config_linux/",
     "-data", workspace_folder,
   },
   init_options = {
@@ -134,6 +137,6 @@ config["on_attach"] = function(client, bufnr)
   require("jdtls").setup_dap({ hotcodereplace = "auto" })
 end
 
---require("dap.ext.vscode").load_launchjs()
+require("dap.ext.vscode").load_launchjs()
 
 jdtls.start_or_attach(config)
