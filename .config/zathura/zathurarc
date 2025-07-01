@@ -1,6 +1,6 @@
 set selection-clipboard clipboard
 set recolor   
-set recolor-lightcolor \#313233
+set recolor-lightcolor \#292a30
 set recolor-darkcolor \#8B8D8F
 set recolor-keephue
-set default-bg \#313233
+set default-bg \#292a30
