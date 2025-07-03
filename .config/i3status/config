@@ -1,0 +1,27 @@
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 5
+}
+
+order += "memory"
+order += "disk /"
+order += "wireless wlan0"
+order += "tztime local"
+
+disk "/" {
+    format = "  %free"
+}
+
+wireless wlan0 {
+    format_up = "  %essid"
+    format_down = "󰤫  desconectado"
+}
+
+tztime local {
+    format = "  %Y-%m-%d   %H:%M"
+}
+
+memory {
+    format = "  %used / %total"
+}

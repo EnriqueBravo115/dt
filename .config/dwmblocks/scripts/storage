@@ -1,8 +1,0 @@
-#!/bin/bash
-
-total=$(df -h . | awk 'NR==2 {print $2}')
-used=$(df -h . | awk 'NR==2 {print $3}')
-
-percentage=$(df -h . | awk 'NR==2 {print $5}' | sed 's/%//')
-
-echo "^c#a1cdd8^  $percentage%  "

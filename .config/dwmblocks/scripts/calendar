@@ -1,4 +1,0 @@
-#! /bin/bash 
-
-dte="$(date +"%d-%m-%Y")"
-echo -e "^c#B877DB^   $dte "

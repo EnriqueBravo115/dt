@@ -4,5 +4,7 @@ mpd &
 picom &
 setxkbmap us -variant altgr-intl &
 blueman-applet &
-/usr/local/bin/dwmblocks &
-dwm
+xfce4-power-manager &
+volumeicon &
+nm-applet &
+exec i3

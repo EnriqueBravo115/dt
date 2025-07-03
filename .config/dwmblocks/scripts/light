@@ -1,5 +1,0 @@
-#! /bin/bash 
-
-a="$(xbacklight -get)"
-
-echo "^c#FAC29A^󱠂 $a%"

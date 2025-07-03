@@ -1,8 +1,0 @@
-#!/bin/bash
-
-output=$(bluetoothctl info | grep "Name:")
-
-if [ -n "$output" ]; then
-    name=$(echo "$output" | cut -d ' ' -f 2-)
-    echo "󰂯 $name  "
-fi
