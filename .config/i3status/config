@@ -10,7 +10,7 @@ order += "wireless wlan0"
 order += "tztime local"
 
 disk "/" {
-    format = "  %free"
+    format = "  %used / %total"
 }
 
 wireless wlan0 {
@@ -19,7 +19,7 @@ wireless wlan0 {
 }
 
 tztime local {
-    format = "  %Y-%m-%d   %H:%M"
+    format = "  %Y-%m-%d %H:%M"
 }
 
 memory {
