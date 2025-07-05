@@ -6,8 +6,8 @@ general {
 
 order += "memory"
 order += "disk /"
-order += "wireless wlan0"
 order += "cpu_temperature 0"
+order += "wireless wlan0"
 order += "tztime local"
 
 disk "/" {
