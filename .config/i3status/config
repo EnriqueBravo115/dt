@@ -7,6 +7,7 @@ general {
 order += "memory"
 order += "disk /"
 order += "wireless wlan0"
+order += "cpu_temperature 0"
 order += "tztime local"
 
 disk "/" {
@@ -19,9 +20,14 @@ wireless wlan0 {
 }
 
 tztime local {
-    format = "  %Y-%m-%d %H:%M"
+    format = "  %H:%M %Y-%m-%d"
 }
 
 memory {
     format = "  %used / %total"
+}
+
+cpu_temperature 0 {
+    format = "  %degrees°C"
+    path = "/sys/class/thermal/thermal_zone0/temp"
 }
