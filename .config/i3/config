@@ -17,6 +17,7 @@ bindsym $mod+Shift+m exec redshift -x
 bindsym $mod+e exec emacs
 bindsym $mod+v exec feh --bg-fill --randomize /mnt/disk/wallpapers/secure/*
 bindsym $mod+Shift+v exec --no-startup-id nitrogen --set-scaled "$(find /mnt/disk/wallpapers/insecure/ -type f | shuf -n1)" --save
+bindsym $mod+i exec --no-startup-id xdotool type $(grep -v '^#' ~/.local/bin/links | dmenu -i -l 50 | cut -d' ' -f1)
 bindsym $mod+b exec blueman-manager
 bindsym $mod+p exec maim -g 1360x768+1366+0 ~/$(date +%H-%M-%S).png
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
