@@ -29,8 +29,8 @@ return {
         "ts_ls",
         "cssls",
         "gopls",
+        "jdtls",
         "clojure_lsp",
-        "bashls"
       },
     })
 

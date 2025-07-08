@@ -38,15 +38,15 @@ local config = {
         runtimes = {
           {
             name = "JavaSE-11",
-            path = "/home/nullboy/.sdkman/candidates/java/11.0.23-tem"
+            path = "/home/nullboy/.sdkman/candidates/java/11.0.27-tem/"
           },
           {
             name = "JavaSE-1.8",
-            path = "/home/nullboy/.sdkman/candidates/java/8.0.412-tem"
+            path = "/home/nullboy/.sdkman/candidates/java/8.0.452-tem/"
           },
           {
             name = "JavaSE-17",
-            path = "/home/nullboy/.sdkman/candidates/java/17.0.4-tem"
+            path = "/home/nullboy/.sdkman/candidates/java/17.0.15-tem/"
           },
         },
         updateBuildConfiguration = "interactive",

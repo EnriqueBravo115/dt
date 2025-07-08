@@ -8,14 +8,13 @@ vim.keymap.set("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>")
 vim.keymap.set("n", "<leader>r", "<cmd>:MarkdownPreview<CR>")
 vim.keymap.set("n", "<leader>ww", "<cmd>:w<CR>")
 vim.keymap.set("n", "<leader>qq", "<cmd>:q<CR>")
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<leader>gs", "<cmd>:G<CR>")
 vim.keymap.set("n", "<leader>gp", "<cmd>:G push<CR>")
 vim.keymap.set("n", "<leader>tn", "<cmd>:tabnew<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>:tabnext<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<leader>cc", "<cmd>:Clj<CR>")
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>gg", vim.cmd.Git)
 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<C-t>", "<cmd>cnext<CR>zz")
@@ -73,10 +72,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Enviar el comando al REPL de Clojure conectado
 vim.api.nvim_create_user_command(
   'ResetComponentRepl',
   function()
-    -- Enviar el comando al REPL de Clojure conectado
     vim.cmd('ConjureEval (in-ns \'dev)')
     vim.cmd('ConjureEval (component-repl/reset)')
   end,

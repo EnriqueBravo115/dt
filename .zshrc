@@ -10,9 +10,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias v="nvim"
 alias c="clear"
-alias lf="lfub"
 alias n="ncmpcpp"
-alias g="lf /mnt/disk/"
+alias g="yazi /mnt/disk/"
 
 bindkey -v
 export KEYTIMEOUT=1

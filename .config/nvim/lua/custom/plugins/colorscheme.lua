@@ -18,7 +18,7 @@ return {
         shade = "dark",
         percentage = 0.15,
       },
-      no_italic = false,
+      no_italic = true,
       no_bold = false,
       no_underline = false,
       styles = {

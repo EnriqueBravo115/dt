@@ -11,20 +11,15 @@ return {
       callback = function(ev)
         local opts = { buffer = ev.buf, silent = true }
 
-        vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gD", "<cmd>Telescope lsp_definitions<CR>", opts)
-        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-        vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-        vim.keymap.set({ "n", "v" }, "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        --vim.keymap.set("n", "<leader>ca", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
         vim.keymap.set("n", "<leader>n", function() vim.lsp.buf.format() end, opts)
-        --vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
       end,
     })
 
