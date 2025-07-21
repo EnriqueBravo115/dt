@@ -1,4 +1,4 @@
-local builtin = require('telescope.builtin')
+local builtin = require("telescope.builtin")
 local set = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local mark = require("harpoon.mark")
@@ -30,12 +30,14 @@ vim.keymap.set("n", "<leader>gh", "<cmd>diffget //3<CR>")
 -- Telescope
 vim.keymap.set("n", "<leader>ff",
   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
+vim.keymap.set("n", "<leader>fo",
+  "<cmd>lua require'telescope.builtin'.oldfiles(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
 vim.keymap.set("n", "<leader>fg",
   "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
 vim.keymap.set("n", "<leader>bf",
   "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
-vim.keymap.set('n', '<leader>ps', function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
-vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+vim.keymap.set("n", '<leader>ps', function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
+vim.keymap.set("n", '<leader>vh', builtin.help_tags, {})
 
 -- Harpoon
 vim.keymap.set("n", "<C-s>", mark.add_file)
@@ -64,9 +66,9 @@ set("n", "<leader>dn", "<cmd>:lua require'jdtls'.test_nearest_method()<CR>")
 vim.api.nvim_exec([[tnoremap <esc><esc> <C-\><C-n>:wincmd w<CR> ]], false)
 
 -- Color line yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -74,10 +76,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Enviar el comando al REPL de Clojure conectado
 vim.api.nvim_create_user_command(
-  'ResetComponentRepl',
+  "ResetComponentRepl",
   function()
-    vim.cmd('ConjureEval (in-ns \'dev)')
-    vim.cmd('ConjureEval (component-repl/reset)')
+    vim.cmd("ConjureEval (in-ns \'dev)")
+    vim.cmd("ConjureEval (component-repl/reset)")
   end,
-  { desc = 'Reset component REPL in dev namespace' }
+  { desc = "Reset component REPL in dev namespace" }
 )

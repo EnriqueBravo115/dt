@@ -20,6 +20,5 @@ vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
-vim.cmd("highlight ColorColumn guibg=#657b83")
+vim.cmd [[colorscheme nightfox]]
 vim.cmd("highlight NvimTreeIndentMarker guifg=#fd9353")
-vim.cmd [[colorscheme catppuccin]]

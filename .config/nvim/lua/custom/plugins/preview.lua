@@ -9,6 +9,5 @@ return {
     vim.g.mkdp_highlight_css = "/home/nullboy/.config/nvim/resources/my.css"
     vim.g.mkdp_theme = "light"
     vim.g.mkdp_page_title = "${name}"
-    vim.g.mkdp_browser = "firefox"
   end
 }

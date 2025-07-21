@@ -11,7 +11,9 @@ source $ZSH/oh-my-zsh.sh
 alias v="nvim"
 alias c="clear"
 alias n="ncmpcpp"
+alias lf="yazi"
 alias g="yazi /mnt/disk/"
+alias sf="swww img --transition-type=none --resize=fit"
 
 bindkey -v
 export KEYTIMEOUT=1
