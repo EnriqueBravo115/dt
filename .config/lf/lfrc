@@ -1,12 +1,11 @@
 set icons
-set previewer '/home/nullboy/.config/lf/preview'
-set cleaner '/home/nullboy/.config/lf/clean'
-
+set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/scope'
 cmd mkdir $mkdir -p "$@"
 
-map <enter> open
-map . set hidden!
 map g top
+map . set hidden!
+map <enter> open
 map a push :mkdir<space>""<left>
 map V push :!nvim<space>
 map D delete

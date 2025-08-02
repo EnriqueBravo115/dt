@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-# Limpia kitty
-if command -v kitty &>/dev/null && [ -n "$KITTY_WINDOW_ID" ]; then
-  kitty +kitten icat --clear
-fi

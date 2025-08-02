@@ -1,0 +1,33 @@
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 5
+}
+
+order += "memory"
+order += "disk /"
+order += "cpu_temperature 0"
+order += "wireless wlan0"
+order += "tztime local"
+
+disk "/" {
+    format = "  %used / %total"
+}
+
+wireless wlan0 {
+    format_up = "  %essid"
+    format_down = "󰤫  desconectado"
+}
+
+tztime local {
+    format = "  %H:%M %d-%m-%Y"
+}
+
+memory {
+    format = "  %used / %total"
+}
+
+cpu_temperature 0 {
+    format = "  %degrees°C"
+    path = "/sys/class/thermal/thermal_zone0/temp"
+}

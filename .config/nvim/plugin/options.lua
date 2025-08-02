@@ -22,3 +22,4 @@ vim.opt.updatetime = 50
 
 vim.cmd [[colorscheme nightfox]]
 vim.cmd("highlight NvimTreeIndentMarker guifg=#fd9353")
+vim.cmd("highlight MatchParen guibg=#09F7A0 guifg=#000000")
