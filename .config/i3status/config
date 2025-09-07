@@ -10,6 +10,7 @@ order += "cpu_temperature 0"
 order += "volume master"
 order += "wireless wlan0"
 order += "tztime local"
+order += "battery 0"
 
 disk "/" {
     format = "  %used / %total"
@@ -21,7 +22,7 @@ wireless wlan0 {
 }
 
 tztime local {
-    format = "%H:%M %d-%m"
+    format = "%d-%m-%y %H:%M"
 }
 
 memory {
@@ -38,4 +39,11 @@ volume master {
     device = "default"
     mixer = "Master"
     mixer_idx = 0
+}
+
+battery 0 {
+    format = "%status %percentage"
+    path = "/sys/class/power_supply/BAT0/uevent"
+    integer_battery_capacity = true
+    last_full_capacity = true
 }
