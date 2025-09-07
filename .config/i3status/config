@@ -7,6 +7,7 @@ general {
 order += "memory"
 order += "disk /"
 order += "cpu_temperature 0"
+order += "volume master"
 order += "wireless wlan0"
 order += "tztime local"
 
@@ -15,12 +16,12 @@ disk "/" {
 }
 
 wireless wlan0 {
-    format_up = "  %essid"
+    format_up = " %quality %essid"
     format_down = "󰤫  desconectado"
 }
 
 tztime local {
-    format = "  %H:%M %d-%m-%Y"
+    format = "%H:%M %d-%m"
 }
 
 memory {
@@ -28,6 +29,13 @@ memory {
 }
 
 cpu_temperature 0 {
-    format = "  %degrees°C"
+    format = "  %degrees°C"
     path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+volume master {
+    format = "󰕾 %volume"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
 }

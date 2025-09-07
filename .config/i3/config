@@ -1,6 +1,6 @@
 set $mod Mod4
 
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 
 gaps inner 5
 gaps outer 5
@@ -11,7 +11,7 @@ bindsym $mod+minus       gaps inner all minus 5
 bindsym $mod+Tab workspace next
 
 bindsym $mod+Return exec kitty
-bindsym $mod+w exec firefox
+bindsym $mod+w exec brave
 bindsym $mod+e exec emacs
 bindsym $mod+n exec nemo
 bindsym $mod+i exec idea
@@ -19,13 +19,16 @@ bindsym $mod+b exec blueman-manager
 bindsym $mod+Shift+i exec insomnia
 bindsym $mod+Shift+n exec nitrogen
 bindsym $mod+Shift+m exec redshift -x
+bindsym $mod+Shift+b bar mode toggle
 bindsym $mod+m exec redshift -O 3500
 bindsym $mod+v exec feh --bg-fill --randomize /mnt/disk/wallpapers/secure/*
 bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/.local/bin/links | dmenu -i -l 50 | cut -d' ' -f1)
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
+bindsym $mod+p exec maim ~/$(date +%H-%M-%S).png
+bindsym $mod+c exec kitty -e bc -l
 
 bindsym $mod+z exec mpc random
-bindsym $mod+p exec mpc prev
+bindsym $mod+o exec mpc prev
 bindsym $mod+comma exec mpc toggle
 bindsym $mod+period exec mpc next
 bindsym $mod+F9 exec mpc seek -10
@@ -38,7 +41,7 @@ bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10
 
 client.focused #78c2b3 #222222 #ffffff #78c2b3 #78c2b3
 
-font pango:Iosevka Nerd Font 8
+font pango:CaskaydiaCove Nerd Font 9
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -136,6 +139,7 @@ bindsym $mod+r mode "resize"
 
 bar {
     status_command i3status
+    mode            dock
     position        top
     colors {
         background #292a30

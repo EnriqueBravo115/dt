@@ -1,7 +1,11 @@
 return {
-  "jiangmiao/auto-pairs",
   "mbbill/undotree",
-  "HiPhish/rainbow-delimiters.nvim",
   "tpope/vim-fugitive",
-  "tpope/vim-surround"
+  "tpope/vim-surround",
+  "mfussenegger/nvim-jdtls",
+  "norcalli/nvim-colorizer.lua",
+  "ThePrimeagen/harpoon",
+  config = function()
+    require("colorizer").setup()
+  end
 }

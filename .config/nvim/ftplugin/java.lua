@@ -9,15 +9,6 @@ local root_dir = require("jdtls.setup").find_root(root_markers)
 
 local workspace_folder = home .. "/.cache/jdtls/workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
-local bundles = {
-  vim.fn.glob(
-    home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
-    1),
-}
-
-vim.list_extend(bundles,
-  vim.split(vim.fn.glob(home .. "/.local/share/nvim/mason/packages/java-test/extension/server/*.jar", 1), "\n"))
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
@@ -26,9 +17,6 @@ local config = {
   settings = {
     flags = {
       allow_incremental_sync = true,
-    },
-    init_options = {
-      bundles = bundles,
     },
     java = {
       configuration = {
@@ -124,15 +112,9 @@ local config = {
     "-configuration", "/home/nullboy/.local/share/nvim/mason/packages/jdtls/config_linux/",
     "-data", workspace_folder,
   },
-  init_options = {
-    bundles = bundles,
-  },
 }
 
 config["on_attach"] = function(client, bufnr)
-  require("jdtls").setup_dap({ hotcodereplace = "auto" })
 end
-
-require("dap.ext.vscode").load_launchjs()
 
 jdtls.start_or_attach(config)

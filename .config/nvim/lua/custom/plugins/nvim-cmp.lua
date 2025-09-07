@@ -9,7 +9,6 @@ return {
       version = "v2.*",
     },
     "saadparwaiz1/cmp_luasnip",
-    "rafamadriz/friendly-snippets",
     "nvim-treesitter/nvim-treesitter",
     "onsails/lspkind.nvim",
     "roobert/tailwindcss-colorizer-cmp.nvim",

@@ -27,7 +27,6 @@ return {
       ensure_installed = {
         "lua_ls",
         "ts_ls",
-        "cssls",
         "gopls",
         "jdtls",
         "clojure_lsp",
