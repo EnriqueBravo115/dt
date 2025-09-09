@@ -1,9 +1,7 @@
 set $mod Mod4
 
+font pango:CaskaydiaCove Nerd Font 8
 for_window [class=".*"] border pixel 2
-
-gaps inner 5
-gaps outer 5
 
 bindsym $mod+plus        gaps inner all plus 5
 bindsym $mod+minus       gaps inner all minus 5
@@ -39,9 +37,6 @@ bindsym $mod+F12 exec mpc volume -10
 bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10
 
-client.focused #78c2b3 #222222 #ffffff #78c2b3 #78c2b3
-
-font pango:CaskaydiaCove Nerd Font 9
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -141,15 +136,4 @@ bar {
     status_command i3status
     mode            dock
     position        top
-    colors {
-        background #292a30
-        statusline #ffffff
-        separator  #666666
-
-        focused_workspace  #78c2b3 #78c2b3 #000000
-        active_workspace   #3b4252 #3b4252 #ffffff
-        inactive_workspace #292a30 #292a30 #888888
-        urgent_workspace   #bf616a #bf616a #ffffff
-        binding_mode       #ebcb8b #ebcb8b #000000
-    }
 }
