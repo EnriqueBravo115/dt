@@ -1,15 +1,17 @@
 set $mod Mod4
 
-font pango:CaskaydiaCove Nerd Font 8
+font pango:Iosevka Nerd Font 9
 for_window [class=".*"] border pixel 2
 
 bindsym $mod+plus        gaps inner all plus 5
 bindsym $mod+minus       gaps inner all minus 5
 
+client.focused #78c2b3 #222222 #ffffff #78c2b3 #78c2b3
+
 bindsym $mod+Tab workspace next
 
 bindsym $mod+Return exec kitty
-bindsym $mod+w exec brave
+bindsym $mod+w exec firefox
 bindsym $mod+e exec emacs
 bindsym $mod+n exec nemo
 bindsym $mod+i exec idea
@@ -37,14 +39,13 @@ bindsym $mod+F12 exec mpc volume -10
 bindsym XF86MonBrightnessUp exec sudo xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10
 
-
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym $mod+F1 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -136,4 +137,16 @@ bar {
     status_command i3status
     mode            dock
     position        top
+        colors {
+        background #292a30
+        statusline #ffffff
+        separator  #666666
+
+        focused_workspace  #78c2b3 #78c2b3 #000000
+        active_workspace   #3b4252 #3b4252 #ffffff
+        inactive_workspace #262626 #262626 #888888
+        urgent_workspace   #bf616a #bf616a #ffffff
+        binding_mode       #ebcb8b #ebcb8b #000000
+    }
+
 }

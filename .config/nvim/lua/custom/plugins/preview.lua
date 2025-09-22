@@ -6,8 +6,8 @@ return {
     vim.fn["mkdp#util#install"]()
   end,
   config = function()
-    vim.g.mkdp_highlight_css = "/home/nullboy/.config/nvim/resources/my.css"
-    vim.g.mkdp_theme = "light"
+    vim.g.mkdp_highlight_css = "/home/nullboy/.config/nvim/preview.css"
+    vim.g.mkdp_theme = "dark"
     vim.g.mkdp_page_title = "${name}"
   end
 }

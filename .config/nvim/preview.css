@@ -1,0 +1,40 @@
+* {
+    font-family: 'Iosevka Nerd Font';
+}
+
+li::marker {
+    color: #fd9353;
+    font-weight: bold;
+}
+
+em {
+    color: #ae81ff;
+}
+
+strong {
+    color: #25B2BC;
+}
+
+em strong {
+  color: #eeeeee;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+code {
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+    border: 1px solid #eaeaea;
+    background-color: #2F333A;
+    border-radius: 3px;
+    font-family: 'Iosevka Nerd Font' !important;
+}
+

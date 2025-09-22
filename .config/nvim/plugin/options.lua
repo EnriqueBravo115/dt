@@ -20,7 +20,7 @@ vim.opt.shiftwidth = 4
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
-vim.cmd [[colorscheme solarized-osaka]]
+vim.cmd [[colorscheme vague]]
 vim.cmd("highlight NvimTreeIndentMarker guifg=#fd9353")
 vim.cmd("highlight MatchParen guibg=#09F7A0 guifg=#000000")
-vim.cmd("highlight ColorColumn guibg=#1c1c24")
+vim.cmd("highlight ColorColumn guibg=#1C1C24")

@@ -21,7 +21,7 @@ return {
       sections = {
         lualine_a = { { "mode", icon = "" } },
         lualine_b = { { "branch", icon = "󰘬" }, },
-        lualine_c = { { "filename" }, { "diff", symbols = { added = "󰋠 ", modified = "󱗜 ", removed = "󰍵 " } } },
+        lualine_c = { { "filename" }, { "diff", symbols = { added = "加 ", modified = "改 ", removed = "删 " } } },
         lualine_x = { "diagnostics" },
         lualine_y = {
           { "fileformat", symbols = {

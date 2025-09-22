@@ -24,10 +24,10 @@ return {
     })
 
     local signs = {
-      [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN]  = " ",
-      [vim.diagnostic.severity.HINT]  = "󰠠 ",
-      [vim.diagnostic.severity.INFO]  = " ",
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN]  = " ",
+      [vim.diagnostic.severity.HINT]  = " ",
+      [vim.diagnostic.severity.INFO]  = " ",
     }
 
     vim.diagnostic.config({
@@ -130,11 +130,5 @@ return {
     lspconfig.gopls.setup({ capabilities = capabilities })
     lspconfig.clojure_lsp.setup({ capabilities = capabilities })
     lspconfig.lemminx.setup({ capabilities = capabilities })
-    lspconfig.yamlls.setup({ capabilities = capabilities })
-    lspconfig.groovyls.setup({
-      cmd = { "java", "-jar", "/home/nullboy/.config/groovy-language-server/build/libs/groovy-language-server-all.jar" },
-      filetypes = { "groovy" },
-      capabilities = capabilities,
-    })
   end,
 }
