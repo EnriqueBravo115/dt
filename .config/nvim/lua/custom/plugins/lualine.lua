@@ -8,7 +8,7 @@ return {
   config = function()
     require("lualine").setup {
       options = {
-        theme = "auto",
+        theme = "solarized",
         component_separators = "",
         section_separators = { left = "", right = "" },
         always_divide_middle = false,
