@@ -4,11 +4,11 @@ general {
     interval = 5
 }
 
+order += "wireless wlan0"
 order += "memory"
 order += "disk /"
 order += "cpu_temperature 0"
 order += "volume master"
-order += "wireless wlan0"
 order += "tztime local"
 order += "battery 0"
 

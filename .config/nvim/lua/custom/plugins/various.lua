@@ -7,6 +7,7 @@ return {
   },
 
   "mbbill/undotree",
+  "HiPhish/rainbow-delimiters.nvim",
   "tpope/vim-fugitive",
   "tpope/vim-surround",
   "mfussenegger/nvim-jdtls",

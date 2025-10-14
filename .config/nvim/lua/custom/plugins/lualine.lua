@@ -25,7 +25,7 @@ return {
         lualine_x = { "diagnostics" },
         lualine_y = {
           { "fileformat", symbols = {
-            unix = '', -- e712
+            unix = '🦫', -- e712
             dos = '', -- e70f
             mac = '', -- e711
           } },

@@ -18,14 +18,17 @@ bindsym $mod+i exec idea
 bindsym $mod+b exec blueman-manager
 bindsym $mod+Shift+i exec insomnia
 bindsym $mod+Shift+n exec nitrogen
+bindsym $mod+m exec redshift -O 3500
 bindsym $mod+Shift+m exec redshift -x
 bindsym $mod+Shift+b bar mode toggle
-bindsym $mod+m exec redshift -O 3500
 bindsym $mod+v exec feh --bg-fill --randomize /mnt/disk/wallpapers/secure/*
-bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/.local/bin/links | dmenu -i -l 50 | cut -d' ' -f1)
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
 bindsym $mod+p exec maim ~/$(date +%H-%M-%S).png
 bindsym $mod+c exec kitty -e bc -l
+
+bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links1.md | dmenu -i -l 50 | cut -d' ' -f1)
+bindsym $mod+Shift+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links2.md | dmenu -i -l 50 | cut -d' ' -f1)
+bindsym $mod+F6 exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links3.md | dmenu -i -l 50 | cut -d' ' -f1)
 
 bindsym $mod+z exec mpc random
 bindsym $mod+o exec mpc prev
