@@ -8,6 +8,7 @@ order += "wireless wlan0"
 order += "memory"
 order += "disk /"
 order += "cpu_temperature 0"
+order += "cpu_usage"
 order += "volume master"
 order += "tztime local"
 order += "battery 0"
@@ -17,25 +18,20 @@ disk "/" {
 }
 
 wireless wlan0 {
-    format_up = " %quality %essid"
+    format_up = "󰖩  %quality %essid"
     format_down = "󰤫  desconectado"
 }
 
 tztime local {
-    format = "%d-%m-%y %H:%M"
+    format = "  %d-%m-%y -   %H:%M"
 }
 
 memory {
     format = "  %used / %total"
 }
 
-cpu_temperature 0 {
-    format = "  %degrees°C"
-    path = "/sys/class/thermal/thermal_zone0/temp"
-}
-
 volume master {
-    format = "󰕾 %volume"
+    format = "  %volume"
     device = "default"
     mixer = "Master"
     mixer_idx = 0
@@ -46,4 +42,13 @@ battery 0 {
     path = "/sys/class/power_supply/BAT0/uevent"
     integer_battery_capacity = true
     last_full_capacity = true
+}
+
+cpu_temperature 0 {
+    format = "󰔄 %degrees"
+    path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+cpu_usage {
+    format = "  %usage"
 }

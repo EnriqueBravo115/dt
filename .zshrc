@@ -14,7 +14,6 @@ alias n="ncmpcpp"
 alias g="lf /mnt/disk/"
 alias lf="lfub"
 
-bindkey -v
 export KEYTIMEOUT=1
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

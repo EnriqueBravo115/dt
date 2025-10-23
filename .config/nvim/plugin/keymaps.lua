@@ -5,6 +5,7 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>e", "<cmd>:NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>r", "<cmd>:MarkdownPreview<CR>")
 vim.keymap.set("n", "<leader>ww", "<cmd>:w<CR>")
 vim.keymap.set("n", "<leader>qq", "<cmd>:q<CR>")

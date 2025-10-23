@@ -141,13 +141,13 @@ bar {
     mode            dock
     position        top
         colors {
-        background #002b36
+        background #292B2E
         statusline #ffffff
         separator  #666666
 
         focused_workspace  #78c2b3 #78c2b3 #000000
         active_workspace   #3b4252 #3b4252 #ffffff
-        inactive_workspace #002b36 #002b36 #888888
+        inactive_workspace #292B2E #292B2E #888888
         urgent_workspace   #bf616a #bf616a #ffffff
         binding_mode       #ebcb8b #ebcb8b #000000
     }

@@ -5,7 +5,7 @@ return {
       require("colorizer").setup()
     end
   },
-
+  "jiangmiao/auto-pairs",
   "mbbill/undotree",
   "HiPhish/rainbow-delimiters.nvim",
   "tpope/vim-fugitive",
