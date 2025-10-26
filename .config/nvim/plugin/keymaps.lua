@@ -29,6 +29,9 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>gu", "<cmd>diffget //2<CR>")
 vim.keymap.set("n", "<leader>gh", "<cmd>diffget //3<CR>")
 
+vim.keymap.set("n", "<leader>m'", "<cmd>:Clj<CR>")
+vim.keymap.set("n", "<leader>md", "<cmd>:ResetComponentRepl<CR>")
+
 -- Telescope
 vim.keymap.set("n", "<leader>ff",
   "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
@@ -38,8 +41,8 @@ vim.keymap.set("n", "<leader>fg",
   "<cmd>lua require'telescope.builtin'.git_files(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
 vim.keymap.set("n", "<leader>bf",
   "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_ivy({previewer=false}))<cr>", opts)
-vim.keymap.set("n", '<leader>ps', function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
-vim.keymap.set("n", '<leader>vh', builtin.help_tags, {})
+vim.keymap.set("n", "<leader>ps", function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end)
+vim.keymap.set("n", "<leader>vh", builtin.help_tags, {})
 
 -- Harpoon
 vim.keymap.set("n", "<C-s>", mark.add_file)
@@ -64,7 +67,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Enviar el comando al REPL de Clojure conectado
 vim.api.nvim_create_user_command(
   "ResetComponentRepl",
   function()

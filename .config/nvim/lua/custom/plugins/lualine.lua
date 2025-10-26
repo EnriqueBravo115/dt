@@ -76,7 +76,7 @@ ins_left {
 
 ins_left {
   function()
-    return ''
+    return '󰣨'
   end,
   color = function()
     local mode_color = {
@@ -84,7 +84,7 @@ ins_left {
       i = colors.red,
       v = colors.magenta,
       [''] = colors.blue,
-      V = colors.blue,
+      V = colors.magenta,
       c = colors.yellow,
       no = colors.red,
       s = colors.orange,
@@ -106,34 +106,30 @@ ins_left {
   padding = { right = 1 },
 }
 
+ins_left {
+  'filesize',
+  cond = conditions.buffer_not_empty,
+}
 
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
+  path = 4,
   color = { fg = colors.fg },
 }
 
 ins_left {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
+  'location',
 }
 
 ins_left {
-  'diff',
-  symbols = { added = ' ', modified = ' ', removed = ' ' },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
-  cond = conditions.hide_in_width,
+  'progress',
 }
 
 ins_left {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
-  symbols = { error = ' ', warn = ' ', info = ' ' },
+  symbols = { error = ' ', warn = ' ', info = ' ' },
   diagnostics_color = {
     error = { fg = colors.red },
     warn = { fg = colors.yellow },
@@ -147,35 +143,21 @@ ins_right {
   end,
 }
 
-ins_right { 'location' }
-
-ins_right { 'progress', color = { fg = colors.fg, gui = 'bold' } }
-
 ins_right {
-  'filesize',
-  cond = conditions.buffer_not_empty,
-}
-
-ins_right {
-  'o:encoding',
-  fmt = string.upper,
+  'diff',
+  symbols = { added = '新 ', modified = '改 ', removed = '删 ' },
+  diff_color = {
+    added = { fg = colors.green },
+    modified = { fg = colors.orange },
+    removed = { fg = colors.red },
+  },
   cond = conditions.hide_in_width,
-  color = { fg = colors.red },
 }
 
 ins_right {
-  'fileformat',
-  fmt = string.upper,
-  icons_enabled = false,
-  color = { fg = colors.red },
-}
-
-ins_right {
-  function()
-    return '▊'
-  end,
-  color = { fg = colors.bg },
-  padding = { left = 1 },
+  'branch',
+  icon = '',
+  color = { fg = colors.violet, gui = 'bold' },
 }
 
 return {
