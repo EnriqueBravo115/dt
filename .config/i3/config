@@ -1,7 +1,7 @@
 set $mod Mod4
 
 font pango:Iosevka Nerd Font 9
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
 
 bindsym $mod+plus        gaps inner all plus 5
 bindsym $mod+minus       gaps inner all minus 5
@@ -141,15 +141,14 @@ bar {
     mode            dock
     position        top
         colors {
-        background #292B2E
+        background #000000
         statusline #ffffff
         separator  #666666
 
         focused_workspace  #78c2b3 #78c2b3 #000000
         active_workspace   #3b4252 #3b4252 #ffffff
-        inactive_workspace #292B2E #292B2E #888888
+        inactive_workspace #000000 #000000 #888888
         urgent_workspace   #bf616a #bf616a #ffffff
         binding_mode       #ebcb8b #ebcb8b #000000
     }
-
 }

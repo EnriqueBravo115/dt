@@ -25,10 +25,10 @@ return {
             folder = {
               arrow_closed = "",
               arrow_open = "",
-              default = "",
-              open = "",
+              default = "",
+              open = "",
               empty = "",
-              empty_open = ""
+              empty_open = ""
             },
             git = {
               staged = "+",

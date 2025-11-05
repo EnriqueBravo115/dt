@@ -1,5 +1,5 @@
 local colors = {
-  bg       = '#202328',
+  bg       = '#303030',
   fg       = '#bbc2cf',
   yellow   = '#f3be7c',
   cyan     = '#008080',
@@ -8,7 +8,7 @@ local colors = {
   orange   = '#FF8800',
   violet   = '#a9a1e1',
   magenta  = '#ae81ff',
-  blue     = '#7e98e8',
+  blue     = '#79dac8',
   red      = '#d8647e',
 }
 
@@ -76,7 +76,7 @@ ins_left {
 
 ins_left {
   function()
-    return '󰣨'
+    return ''
   end,
   color = function()
     local mode_color = {
@@ -107,26 +107,36 @@ ins_left {
 }
 
 ins_left {
-  'filesize',
-  cond = conditions.buffer_not_empty,
-}
-
-ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
-  path = 4,
   color = { fg = colors.fg },
 }
 
 ins_left {
-  'location',
+  'branch',
+  icon = '',
+  color = { fg = colors.violet, gui = 'bold' },
 }
 
 ins_left {
-  'progress',
+  'diff',
+  symbols = { added = '新 ', modified = '改 ', removed = '删 ' },
+  diff_color = {
+    added = { fg = colors.green },
+    modified = { fg = colors.orange },
+    removed = { fg = colors.red },
+  },
+  cond = conditions.hide_in_width,
 }
 
-ins_left {
+
+ins_right {
+  function()
+    return '%='
+  end,
+}
+
+ins_right {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
@@ -138,26 +148,16 @@ ins_left {
 }
 
 ins_right {
-  function()
-    return '%='
-  end,
+  'location',
 }
 
 ins_right {
-  'diff',
-  symbols = { added = '新 ', modified = '改 ', removed = '删 ' },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
-  cond = conditions.hide_in_width,
+  'progress',
 }
 
 ins_right {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
+  'filesize',
+  cond = conditions.buffer_not_empty,
 }
 
 return {
