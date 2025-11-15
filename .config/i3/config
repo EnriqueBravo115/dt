@@ -23,7 +23,7 @@ bindsym $mod+Shift+m exec redshift -x
 bindsym $mod+Shift+b bar mode toggle
 bindsym $mod+v exec feh --bg-fill --randomize /mnt/disk/wallpapers/secure/*
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
-bindsym $mod+p exec maim ~/$(date +%H-%M-%S).png
+bindsym $mod+F5 exec maim ~/$(date +%H-%M-%S).png
 bindsym $mod+c exec kitty -e bc -l
 
 bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links1.md | dmenu -i -l 50 | cut -d' ' -f1)
@@ -31,7 +31,7 @@ bindsym $mod+Shift+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes
 bindsym $mod+F6 exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links3.md | dmenu -i -l 50 | cut -d' ' -f1)
 
 bindsym $mod+z exec mpc random
-bindsym $mod+o exec mpc prev
+bindsym $mod+p exec mpc prev
 bindsym $mod+comma exec mpc toggle
 bindsym $mod+period exec mpc next
 bindsym $mod+F9 exec mpc seek -10
@@ -140,15 +140,4 @@ bar {
     status_command i3status
     mode            dock
     position        top
-        colors {
-        background #000000
-        statusline #ffffff
-        separator  #666666
-
-        focused_workspace  #78c2b3 #78c2b3 #000000
-        active_workspace   #3b4252 #3b4252 #ffffff
-        inactive_workspace #000000 #000000 #888888
-        urgent_workspace   #bf616a #bf616a #ffffff
-        binding_mode       #ebcb8b #ebcb8b #000000
-    }
 }

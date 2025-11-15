@@ -1,13 +1,13 @@
 local colors = {
-  bg       = '#303030',
+  bg       = '#06333E',
   fg       = '#bbc2cf',
   yellow   = '#f3be7c',
   cyan     = '#008080',
   darkblue = '#081633',
-  green    = '#2d9574',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#ae81ff',
+  green    = '#BAFB00',
+  orange   = '#CB4A15',
+  violet   = '#6C71C4',
+  magenta  = '#D33682',
   blue     = '#79dac8',
   red      = '#d8647e',
 }
@@ -81,7 +81,7 @@ ins_left {
   color = function()
     local mode_color = {
       n = colors.blue,
-      i = colors.red,
+      i = colors.green,
       v = colors.magenta,
       [''] = colors.blue,
       V = colors.magenta,

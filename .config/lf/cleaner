@@ -1,4 +1,2 @@
 #!/bin/sh
-if [ -n "$FIFO_UEBERZUG" ]; then
-	printf '{"action": "remove", "identifier": "PREVIEW"}\n' > "$FIFO_UEBERZUG"
-fi
+[ -f "/tmp/lf-preview.jpg" ] && rm "/tmp/lf-preview.jpg"

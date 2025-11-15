@@ -1,0 +1,16 @@
+#!/bin/bash
+
+[ -f "/tmp/lf-preview-cache" ] && rm "/tmp/lf-preview-cache"
+
+case "$1" in
+    *.png|*.jpg|*.jpeg|*.gif|*.bmp|*.webp|*.svg)
+        chafa --format=kitty --size="${2}x${3}" "$1"
+        ;;
+    *.pdf)
+        pdftoppm -jpeg -f 1 -singlefile "$1" /tmp/lf-preview
+        chafa --format=kitty --size="${2}x${3}" /tmp/lf-preview.jpg
+        ;;
+    *)
+        pistol "$1" 2>/dev/null || bat "$1"
+        ;;
+esac
