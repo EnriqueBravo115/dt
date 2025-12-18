@@ -1,6 +1,5 @@
 set icons
 set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/previewer'
 cmd mkdir $mkdir -p "$@"
 
 map g top

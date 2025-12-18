@@ -1,6 +1,6 @@
 * {
     font-family: "Iosevka Nerd Font";
-    font-size: 16px;
+    font-size: 18px;
 }
 
 window#waybar {
@@ -29,11 +29,15 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #79dac8;
 }
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
+    background-color: #fd9353;
+}
+
+#mpd:hover {
     background-color: #fd9353;
 }
 
@@ -44,7 +48,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #workspaces button.active {
@@ -59,13 +63,15 @@ button:hover {
 #battery,
 #cpu,
 #memory,
+#disk,
 #network,
 #pulseaudio,
 #tray,
 #mpd {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     padding: 0 10px;
+    border-radius: 6;
 }
 
 #window,
@@ -130,6 +136,11 @@ label:focus {
     color: #000000;
 }
 
+#disk {
+    background-color: #78c2b3;
+    color: #000000;
+}
+
 #network {
     background-color: #78c2b3;
     color: #000000;
@@ -137,6 +148,7 @@ label:focus {
 
 #network.disconnected {
     background-color: #F09383;
+    color: #000000;
 }
 
 #pulseaudio {
@@ -146,7 +158,7 @@ label:focus {
 
 #pulseaudio.muted {
     background-color: #F09383;
-    color: #2a5c45;
+    color: #000000;
 }
 
 #tray {

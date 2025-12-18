@@ -1,26 +1,26 @@
 {
     "height": 40,
-    "spacing": 8,
+    "spacing": 10,
     "modules-left": [
         "hyprland/workspaces",
     ],
     "modules-center": [
-        "sway/window"
+        "sway/window",
     ],
     "modules-right": [
         "mpd",
         "pulseaudio",
         "network",
         "cpu",
+        "disk",
         "memory",
         "battery",
         "clock",
         "tray",
     ],
-    // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": false,
-         "all-outputs": true,
+         "all-outputs": false,
          "warp-on-scroll": false,
          "format": "{id}: {icon}",
          "format-icons": {
@@ -39,7 +39,7 @@
          }
      },
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) {volume}% 󱄠",
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) 󱄠 {volume}%",
         "format-disconnected": "Disconnected",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}N/A",
         "unknown-tag": "N/A",
@@ -60,16 +60,10 @@
             "paused": "󰏤",
             "playing": "󰐊"
         },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "on-click": "mpc toggle"
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -77,13 +71,11 @@
     },
     "cpu": {
         "format": "{usage}% <span color=\"#000000\"></span>",
-        "tooltip": false
+        "tooltip": true
     },
     "memory": {
-    "format": "{used:0.1f}GiB/{swapused:0.1f}GiB <span color=\"#000000\"></span>",
-    "format-alt": "{used:0.1f}/{total:0.1f} GiB <span color=\"#000000\"></span>",
-    "interval": 5,
-    "tooltip-format": "RAM: {used:0.1f}GiB / {total:0.1f}GiB ({percentage_used}%)"
+        "format": "{used:0.1f}/{total:0.1f} GiB <span color=\"#000000\"></span>",
+        "interval": 5,
     },
     "battery": {
         "states": {
@@ -109,8 +101,14 @@
         "format-disconnected": "󰖪",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+    "disk": {
+        "interval": 30,
+        "format": "{percentage_used}% ",
+        "path": "/",
+        "tooltip-format": "{used} de {total} usados ({percentage_used}%)"
+    },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}<span color=\"#000000\">󰂯</span>",
         "format-bluetooth-muted": " {icon}",
