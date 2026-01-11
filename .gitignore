@@ -6,6 +6,8 @@
 .config/dwm/dwm.o
 .config/dwm/drw.o
 
+.local/share
+
 # DWMBLOCKS
 .config/dwmblocks/blocks.h
 .config/dwmblocks/*.d

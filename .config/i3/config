@@ -44,7 +44,7 @@ bindsym XF86MonBrightnessDown exec sudo xbacklight -dec 10
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
+exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --rate 180.00
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym $mod+F1 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
