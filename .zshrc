@@ -12,7 +12,7 @@ alias v="nvim"
 alias c="clear"
 alias n="ncmpcpp"
 alias g="yazi /mnt/disk/"
-alias lf="lfub"
+alias lf="yazi"
 
 bindkey -v
 export KEYTIMEOUT=1

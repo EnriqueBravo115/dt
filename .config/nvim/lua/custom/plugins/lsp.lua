@@ -5,16 +5,16 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
+
   config = function()
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
         local opts = { buffer = ev.buf, silent = true }
-
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -25,32 +25,25 @@ return {
 
     local signs = {
       [vim.diagnostic.severity.ERROR] = " ",
-      [vim.diagnostic.severity.WARN]  = " ",
-      [vim.diagnostic.severity.HINT]  = " ",
-      [vim.diagnostic.severity.INFO]  = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = " ",
+      [vim.diagnostic.severity.INFO] = " ",
     }
-
     vim.diagnostic.config({
-      signs = {
-        text = signs
-      },
+      signs = { text = signs },
       virtual_text = false,
     })
 
-    local lspconfig = require("lspconfig")
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.enable({ "gopls", "clojure_lsp", "lemminx" })
+
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       settings = {
         Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-          completion = {
-            callSnippet = "Replace",
-          },
+          diagnostics = { globals = { "vim" } },
+          completion = { callSnippet = "Replace" },
           workspace = {
             library = {
               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
@@ -60,25 +53,11 @@ return {
         },
       },
     })
-    lspconfig.emmet_ls.setup({
-      capabilities = capabilities,
-      filetypes = {
-        "html",
-        "typescriptreact",
-        "javascriptreact",
-        "css",
-      },
-    })
+    vim.lsp.enable("lua_ls")
 
-    lspconfig.emmet_language_server.setup({
+    vim.lsp.config("emmet_language_server", {
       capabilities = capabilities,
-      filetypes = {
-        "css",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "typescriptreact",
-      },
+      filetypes = { "css", "html", "javascript", "javascriptreact", "typescriptreact" },
       init_options = {
         includeLanguages = {},
         excludeLanguages = {},
@@ -91,13 +70,14 @@ return {
         variables = {},
       },
     })
+    vim.lsp.enable("emmet_language_server")
 
-    lspconfig.ts_ls.setup({
+    vim.lsp.config("ts_ls", {
       capabilities = capabilities,
       root_dir = function(fname)
-        local util = lspconfig.util
+        local util = require("lspconfig.util")  -- todavía puedes usar util si lo necesitas
         return not util.root_pattern("deno.json", "deno.jsonc")(fname)
-            and util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
+          and util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
       end,
       single_file_support = false,
       init_options = {
@@ -106,29 +86,10 @@ return {
           includeCompletionsForImportStatements = true,
         },
       },
-    })
-
-    lspconfig.ts_ls.setup({
-      capabilities = capabilities,
-      root_dir = function(fname)
-        local util = lspconfig.util
-        return not util.root_pattern('deno.json', 'deno.jsonc')(fname)
-            and util.root_pattern('tsconfig.json', 'package.json', 'jsconfig.json', '.git')(fname)
-      end,
-      single_file_support = false,
-      on_attach = function(client, bufnr)
+      on_attach = function(client)
         client.server_capabilities.documentFormattingProvider = false
       end,
-      init_options = {
-        preferences = {
-          includeCompletionsWithSnippetText = true,
-          includeCompletionsForImportStatements = true,
-        },
-      },
     })
-
-    lspconfig.gopls.setup({ capabilities = capabilities })
-    lspconfig.clojure_lsp.setup({ capabilities = capabilities })
-    lspconfig.lemminx.setup({ capabilities = capabilities })
+    vim.lsp.enable("ts_ls")
   end,
 }
