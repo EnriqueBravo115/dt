@@ -6,8 +6,6 @@ for_window [class=".*"] border pixel 3
 bindsym $mod+plus        gaps inner all plus 5
 bindsym $mod+minus       gaps inner all minus 5
 
-client.focused #78c2b3 #002b36 #ffffff #78c2b3 #78c2b3
-
 bindsym $mod+Tab workspace next
 
 bindsym $mod+Return exec kitty
@@ -21,23 +19,14 @@ bindsym $mod+Shift+n exec nitrogen
 bindsym $mod+m exec redshift -O 3500
 bindsym $mod+Shift+m exec redshift -x
 bindsym $mod+Shift+b bar mode toggle
-bindsym $mod+v exec feh --bg-max --randomize /home/nullboy/dw/
+bindsym $mod+v exec feh --bg-fill --randomize /home/nullboy/dw/
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
-bindsym $mod+F5 exec maim ~/$(date +%H-%M-%S).png
+bindsym $mod+p exec maim ~/$(date +%H-%M-%S).png
 bindsym $mod+c exec kitty -e bc -l
 
 bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links1.md | dmenu -i -l 50 | cut -d' ' -f1)
 bindsym $mod+Shift+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links2.md | dmenu -i -l 50 | cut -d' ' -f1)
 bindsym $mod+F6 exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links3.md | dmenu -i -l 50 | cut -d' ' -f1)
-
-bindsym $mod+z exec mpc random
-bindsym $mod+p exec mpc prev
-bindsym $mod+comma exec mpc toggle
-bindsym $mod+period exec mpc next
-bindsym $mod+F9 exec mpc seek -10
-bindsym $mod+F10 exec mpc seek +10
-bindsym $mod+F11 exec mpc volume +10
-bindsym $mod+F12 exec mpc volume -10
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork

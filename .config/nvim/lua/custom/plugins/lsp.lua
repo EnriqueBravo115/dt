@@ -54,42 +54,8 @@ return {
       },
     })
     vim.lsp.enable("lua_ls")
-
-    vim.lsp.config("emmet_language_server", {
-      capabilities = capabilities,
-      filetypes = { "css", "html", "javascript", "javascriptreact", "typescriptreact" },
-      init_options = {
-        includeLanguages = {},
-        excludeLanguages = {},
-        extensionsPath = {},
-        preferences = {},
-        showAbbreviationSuggestions = true,
-        showExpandedAbbreviation = "always",
-        showSuggestionsAsSnippets = false,
-        syntaxProfiles = {},
-        variables = {},
-      },
-    })
     vim.lsp.enable("emmet_language_server")
-
-    vim.lsp.config("ts_ls", {
-      capabilities = capabilities,
-      root_dir = function(fname)
-        local util = require("lspconfig.util")  -- todavía puedes usar util si lo necesitas
-        return not util.root_pattern("deno.json", "deno.jsonc")(fname)
-          and util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
-      end,
-      single_file_support = false,
-      init_options = {
-        preferences = {
-          includeCompletionsWithSnippetText = true,
-          includeCompletionsForImportStatements = true,
-        },
-      },
-      on_attach = function(client)
-        client.server_capabilities.documentFormattingProvider = false
-      end,
-    })
+    vim.lsp.enable("svelte")
     vim.lsp.enable("ts_ls")
   end,
 }

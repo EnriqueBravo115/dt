@@ -1,10 +1,10 @@
 local colors = {
-  bg       = '#06333E',
+  bg       = '#292a30',
   fg       = '#bbc2cf',
   yellow   = '#f3be7c',
   cyan     = '#008080',
   darkblue = '#081633',
-  green    = '#BAFB00',
+  green    = '#FC6A5D',
   orange   = '#CB4A15',
   violet   = '#6C71C4',
   magenta  = '#D33682',
@@ -76,7 +76,7 @@ ins_left {
 
 ins_left {
   function()
-    return ''
+    return ''
   end,
   color = function()
     local mode_color = {
@@ -122,8 +122,8 @@ ins_left {
   'diff',
   symbols = { added = '新 ', modified = '改 ', removed = '删 ' },
   diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
+    added = { fg = colors.blue },
+    modified = { fg = colors.yellow },
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,

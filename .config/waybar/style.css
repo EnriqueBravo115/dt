@@ -1,10 +1,10 @@
 * {
     font-family: "Iosevka Nerd Font";
-    font-size: 18px;
+    font-size: 20px;
 }
 
 window#waybar {
-    background-color: #002731;
+    background-color: #292a30;
 }
 
 window#waybar.hidden {
