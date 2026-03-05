@@ -37,7 +37,7 @@ volume master {
 }
 
 cpu_temperature 0 {
-    format = "󰔄 %degrees"
+    format = " %degrees"
     path = "/sys/class/hwmon/hwmon2/temp1_input"
 }
 

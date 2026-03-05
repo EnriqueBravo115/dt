@@ -57,5 +57,6 @@ return {
     vim.lsp.enable("emmet_language_server")
     vim.lsp.enable("svelte")
     vim.lsp.enable("ts_ls")
+    vim.lsp.enable("lemminx")
   end,
 }
