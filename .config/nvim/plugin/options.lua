@@ -24,4 +24,4 @@ vim.cmd [[colorscheme vague]]
 vim.cmd("highlight NvimTreeIndentMarker guifg=#fd9353")
 vim.cmd("highlight NvimTreeFolderIcon guifg=#a9a1e1")
 vim.cmd("highlight MatchParen guibg=#09F7A0 guifg=#000000")
-vim.cmd("highlight ColorColumn guibg=#292a30")
+vim.cmd("highlight ColorColumn guibg=#191A1C")

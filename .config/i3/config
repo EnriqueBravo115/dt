@@ -19,7 +19,7 @@ bindsym $mod+Shift+n exec nitrogen
 bindsym $mod+m exec redshift -O 3500
 bindsym $mod+Shift+m exec redshift -x
 bindsym $mod+Shift+b bar mode toggle
-bindsym $mod+v exec feh --bg-max --randomize /home/nullboy/dw/
+bindsym $mod+v exec feh --bg-fill --randomize /home/nullboy/wl
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
 bindsym $mod+p exec maim ~/$(date +%H-%M-%S).png
 bindsym $mod+c exec kitty -e bc -l
