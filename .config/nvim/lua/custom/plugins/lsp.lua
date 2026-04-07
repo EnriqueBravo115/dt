@@ -58,5 +58,6 @@ return {
     vim.lsp.enable("svelte")
     vim.lsp.enable("ts_ls")
     vim.lsp.enable("lemminx")
+    vim.lsp.enable("roslyn")
   end,
 }

@@ -19,7 +19,8 @@ bindsym $mod+Shift+n exec nitrogen
 bindsym $mod+m exec redshift -O 3500
 bindsym $mod+Shift+m exec redshift -x
 bindsym $mod+Shift+b bar mode toggle
-bindsym $mod+v exec feh --bg-fill --randomize /home/nullboy/wl
+bindsym $mod+v exec waypaper
+bindsym $mod+Shift+v exec feh --bg-max --randomize /home/nullboy/wl
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
 bindsym $mod+p exec maim ~/$(date +%H-%M-%S).png
 bindsym $mod+c exec kitty -e bc -l
@@ -28,8 +29,9 @@ bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links
 bindsym $mod+Shift+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links2.md | dmenu -i -l 50 | cut -d' ' -f1)
 bindsym $mod+F6 exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links3.md | dmenu -i -l 50 | cut -d' ' -f1)
 
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id xrandr --output DP-1 --mode 2560x1440 --rate 180.00
 
 set $refresh_i3status killall -SIGUSR1 i3status

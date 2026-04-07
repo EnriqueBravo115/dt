@@ -2,6 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export MANPAGER="nvim +Man!"
 export PATH=$PATH:/usr/local/go/go/bin
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 autoload -U colors && colors
 ZSH_THEME=robbyrussell
