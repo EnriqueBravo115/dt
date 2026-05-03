@@ -19,7 +19,6 @@ return {
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
-        vim.keymap.set("n", "<leader>n", function() vim.lsp.buf.format() end, opts)
       end,
     })
 
@@ -54,10 +53,9 @@ return {
       },
     })
     vim.lsp.enable("lua_ls")
-    vim.lsp.enable("emmet_language_server")
-    vim.lsp.enable("svelte")
     vim.lsp.enable("ts_ls")
     vim.lsp.enable("lemminx")
     vim.lsp.enable("roslyn")
+    vim.lsp.enable("pyright")
   end,
 }

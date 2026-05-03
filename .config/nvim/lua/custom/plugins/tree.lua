@@ -17,7 +17,7 @@ return {
       },
       filters = {
         dotfiles = false,
-        git_ignored = true,
+        git_ignored = false,
       },
       renderer = {
         icons = {

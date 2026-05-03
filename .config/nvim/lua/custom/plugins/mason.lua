@@ -40,6 +40,7 @@ return {
         "cljfmt",
         "roslyn",
         "csharpier",
+        "black",
       },
     })
   end,

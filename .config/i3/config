@@ -131,14 +131,14 @@ bar {
     position        top
 
     colors {
-        background #292A30
+        background #232530
         statusline #ffffff
         separator  #ffffff
 
         # clase              borde    fondo    texto
         focused_workspace    #78c2b3 #78c2b3 #000000
-        active_workspace     #333333 #292A30 #ffffff
-        inactive_workspace   #333333 #292A30 #ffffff
+        active_workspace     #333333 #232530 #ffffff
+        inactive_workspace   #333333 #232530 #ffffff
         urgent_workspace     #cc241d #cc241d #ffffff
         binding_mode         #b16286 #b16286 #ffffff
     }

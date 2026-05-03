@@ -1,26 +1,12 @@
 return {
   {
-    "craftzdog/solarized-osaka.nvim",
+    "scottmckendry/cyberdream.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
     config = function()
-      require("solarized-osaka").setup({
+      require("cyberdream").setup({
+        variant = "default",
         transparent = true,
-        terminal_colors = true,
-        styles = {
-          comments = { italic = true },
-          keywords = { italic = false },
-          functions = {},
-          variables = {},
-          sidebars = "transparent",
-          floats = "transparent",
-        },
-        sidebars = { "qf", "help" },
-        day_brightness = 0.3,
-        hide_inactive_statusline = false,
-        dim_inactive = false,
-        lualine_bold = true,
       })
     end
   },
@@ -60,5 +46,4 @@ return {
       })
     end
   },
-  { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
 }
