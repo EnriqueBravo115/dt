@@ -1,8 +1,8 @@
 return {
   "hrsh7th/nvim-cmp",
   branch = "main",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     {
       "L3MON4D3/LuaSnip",

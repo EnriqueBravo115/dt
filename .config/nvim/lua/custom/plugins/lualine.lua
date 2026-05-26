@@ -31,9 +31,9 @@ local config = {
     component_separators = '',
     section_separators = '',
     refresh = {
-      statusline = 50,
-      tabline = 50,
-      winbar = 50,
+      statusline = 250,
+      tabline = 250,
+      winbar = 250,
     },
     theme = {
       normal = { c = { fg = colors.fg, bg = colors.bg } },

@@ -1,5 +1,7 @@
 return {
   "vimwiki/vimwiki",
+  ft = { "vimwiki" },
+  cmd = { "VimwikiIndex", "VimwikiUISelect", "VimwikiDiaryIndex", "VimwikiMakeDiaryNote" },
   config = function()
 
     vim.cmd("hi VimwikiBold guifg=#ff69b4 gui=bold")

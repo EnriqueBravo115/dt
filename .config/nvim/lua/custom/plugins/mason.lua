@@ -1,6 +1,7 @@
 return {
   "williamboman/mason.nvim",
-  lazy = false,
+  cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog", "MasonUpdate", "MasonToolsInstall", "MasonToolsUpdate", "MasonToolsClean" },
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",

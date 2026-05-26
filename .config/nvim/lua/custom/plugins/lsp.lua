@@ -35,8 +35,6 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    vim.lsp.enable({ "gopls", "clojure_lsp", "lemminx" })
-
     vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       settings = {
@@ -52,10 +50,15 @@ return {
         },
       },
     })
-    vim.lsp.enable("lua_ls")
-    vim.lsp.enable("ts_ls")
-    vim.lsp.enable("lemminx")
-    vim.lsp.enable("roslyn")
-    vim.lsp.enable("pyright")
+
+    vim.lsp.enable({
+      "gopls",
+      "clojure_lsp",
+      "lemminx",
+      "lua_ls",
+      "ts_ls",
+      "roslyn",
+      "pyright",
+    })
   end,
 }

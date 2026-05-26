@@ -1,10 +1,9 @@
-font_family           Hack
 font_size             26
 shell_integration     no-cursor
 enable_audio_bell     no
 cursor_blink_interval 0
 confirm_os_window_close 0
-#background_opacity    0.9
+background_opacity    0.9
 
 map ctrl+alt+tab        next_tab
 map ctrl+alt+shift+tab previous_tab
@@ -13,7 +12,7 @@ map ctrl+tab send_text all \x1b[27;5;9~
 map ctrl+shift+tab send_text all \x1b[27;6;9~
 
 foreground           #d8dee9
-background           #000000
+background           #232530
 cursor               #ff335c
 cursor_text_color    #3b4252
 
@@ -37,7 +36,7 @@ color15              #f6f5f4
 
 
 # BEGIN_KITTY_FONTS
-font_family      family="Droid Sans"
+font_family      family="Hack"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
