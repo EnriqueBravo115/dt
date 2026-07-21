@@ -1,5 +1,5 @@
 local colors = {
-  bg       = '#292A30',
+  bg       = '#212026',
   fg       = '#bbc2cf',
   yellow   = '#f3be7c',
   cyan     = '#008080',
@@ -76,7 +76,7 @@ ins_left {
 
 ins_left {
   function()
-    return ''
+    return ''
   end,
   color = function()
     local mode_color = {

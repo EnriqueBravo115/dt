@@ -5,7 +5,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 autoload -U colors && colors
-ZSH_THEME=robbyrussell
+ZSH_THEME=awesomepanda
 
 source $ZSH/oh-my-zsh.sh
 

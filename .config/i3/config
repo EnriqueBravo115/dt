@@ -8,8 +8,9 @@ bindsym $mod+plus        gaps inner all plus 5
 bindsym $mod+minus       gaps inner all minus 5
 
 bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec ghostty
 bindsym $mod+w exec firefox
 bindsym $mod+e exec emacs
 bindsym $mod+n exec nemo
@@ -21,14 +22,14 @@ bindsym $mod+m exec redshift -O 3500
 bindsym $mod+Shift+m exec redshift -x
 bindsym $mod+Shift+b bar mode toggle
 bindsym $mod+v exec waypaper
-bindsym $mod+Shift+v exec feh --bg-max --randomize /home/nullboy/wl
 bindsym $mod+Shift+p exec maim -s ~/$(date +%H-%M-%S).png
 bindsym $mod+p exec maim ~/$(date +%H-%M-%S).png
 bindsym $mod+c exec kitty -e bc -l
 
-bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links1.md | dmenu -i -l 50 | cut -d' ' -f1)
-bindsym $mod+Shift+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links2.md | dmenu -i -l 50 | cut -d' ' -f1)
-bindsym $mod+F6 exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/Links3.md | dmenu -i -l 50 | cut -d' ' -f1)
+bindsym $mod+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/config/links/Links1.md | dmenu -i -l 50 | cut -d' ' -f1)
+bindsym $mod+Shift+l exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/config/links/Links2.md | dmenu -i -l 50 | cut -d' ' -f1)
+bindsym $mod+F6 exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/config/links/Works.md | dmenu -i -l 50 | cut -d' ' -f1)
+bindsym $mod+F1 exec --no-startup-id xdotool type $(grep -v '^#' ~/dx/notes/config/links/Links3.md | dmenu -i -l 50 | cut -d' ' -f1)
 
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
@@ -38,8 +39,6 @@ exec --no-startup-id xrandr --output DP-1 --mode 2560x1440 --rate 180.00
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym $mod+F8 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym $mod+F7 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 floating_modifier $mod
 tiling_drag modifier titlebar

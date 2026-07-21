@@ -58,6 +58,7 @@ return {
       "lua_ls",
       "ts_ls",
       "roslyn",
+      "intelephense",
       "pyright",
     })
   end,
