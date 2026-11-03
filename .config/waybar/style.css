@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background-color: #000000;
+    background-color: transparent;
 }
 
 window#waybar.hidden {
@@ -16,7 +16,7 @@ window#waybar.termite {
 }
 
 window#waybar.chromium {
-    background-color: #000000;
+    background-color: transparent;
     border: none;
 }
 
@@ -34,34 +34,60 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #fd9353;
+    background-color: #B48EAD;
 }
 
-#mpd:hover {
-    background-color: #fd9353;
+#disk:hover {
+    background-color: #B48EAD;
 }
 
-#workspaces button {
-    padding: 0 5px;
+#network:hover {
+    background-color: #B48EAD;
+}
+
+#workspaces {
     background-color: transparent;
-    color: #949494;
+    padding: 0;
+    margin: 0;
+}
+
+/* Label-less dots: 16px circles, centred in the 43px bar by the 13px margins */
+#workspaces button {
+    margin: 13px 10px 13px 0;
+    padding: 0;
+    min-width: 16px;
+    min-height: 16px;
+    border-radius: 8px;
+    background-color: #555555;
+}
+
+/* `* { font-size: 20px }` targets the inner label directly, so the empty label
+   keeps reserving a 26px line box unless it is overridden here */
+#workspaces button label {
+    font-size: 1px;
+}
+
+#workspaces button:last-child {
+    margin-right: 0;
 }
 
 #workspaces button:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #6b6b6b;
+    box-shadow: none;
 }
 
 #workspaces button.active {
-    color: #79dac8;
+    background-color: #8FBCBB;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #BF616A;
 }
 
 #clock,
 #battery,
 #cpu,
+#temperature,
 #memory,
 #disk,
 #network,
@@ -70,13 +96,8 @@ button:hover {
 #mpd {
     margin-top: 8px;
     margin-bottom: 8px;
-    padding: 0 10px;
-    border-radius: 6;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
+    padding: 0 12px;
+    border-radius: 12px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -90,18 +111,8 @@ button:hover {
 }
 
 #clock {
-    background-color: #78c2b3;
+    background-color: #8FBCBB;
     color: #000000;
-}
-
-#battery {
-    background-color: #78c2b3;
-    color: #000000;
-}
-
-#battery.charging, #battery.plugged {
-    color: #000000;
-    background-color: #09F7A0;
 }
 
 @keyframes blink {
@@ -111,38 +122,37 @@ button:hover {
     }
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 label:focus {
     background-color: #000000;
 }
 
 #cpu {
-    background-color: #78c2b3;
+    background-color: #8FBCBB;
     color: #000000;
 }
 
+#temperature {
+    background-color: #8FBCBB;
+    color: #000000;
+}
+
+#temperature.critical {
+    background-color: #f53c3c;
+    color: #ffffff;
+}
+
 #memory {
-    background-color: #78c2b3;
+    background-color: #8FBCBB;
     color: #000000;
 }
 
 #disk {
-    background-color: #78c2b3;
+    background-color: #8FBCBB;
     color: #000000;
 }
 
 #network {
-    background-color: #78c2b3;
+    background-color: #8FBCBB;
     color: #000000;
 }
 
@@ -152,7 +162,7 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #78c2b3;
+    background-color: #8FBCBB;
     color: #000000;
 }
 
@@ -162,7 +172,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #78c2b3;
+    background-color: #8FBCBB;
 }
 
 #tray > .passive {
@@ -172,21 +182,4 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
-}
-
-#mpd {
-    background-color: #78c2b3;
-    color: #000000;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #62a89c;
-}
-
-#mpd.paused {
-    background-color: #62a89c;
 }

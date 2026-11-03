@@ -1,44 +1,30 @@
 {
-    "height": 40,
-    "spacing": 10,
-    "margin-top": 30,
-    "margin-left": 50,
-    "margin-right": 50,
-    "margin-bottom": -30,
+    "height": 43,
+    "spacing": 20,
+    "margin-top": 15,
+    "margin-left": 25,
+    "margin-right": 25,
+    "margin-bottom": -15,
     "modules-left": [
         "hyprland/workspaces",
     ],
     "modules-center": [
-        "sway/window",
         "clock",
     ],
     "modules-right": [
         "memory",
+        "disk",
         "pulseaudio",
         "network",
         "cpu",
-        "disk",
+        "temperature",
         "tray",
     ],
      "hyprland/workspaces": {
          "disable-scroll": false,
          "all-outputs": false,
          "warp-on-scroll": false,
-         "format": "{id}: {icon}",
-         "format-icons": {
-             "1": "龘",
-             "2": "靐",
-             "3": "齉",
-             "4": "齾",
-             "5": "麤",
-             "6": "鱻",
-             "7": "爨",
-             "8": "籲",
-             "9": "豔",
-             "10": "鬱",
-             "urgent": "",
-             "default": ""
-         }
+         "format": ""
      },
     "tray": {
         "spacing": 10,
@@ -50,6 +36,15 @@
         "format": "{usage}% <span color=\"#000000\"> </span>",
         "tooltip": true,
         "interval": 1,
+    },
+    "temperature": {
+        // k10temp Tctl; the hwmon* index is not stable across reboots, so match on the device path
+        "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+        "input-filename": "temp1_input",
+        "interval": 1,
+        "critical-threshold": 85,
+        "format": "{temperatureC}°C <span color=\"#000000\">󰔏</span>",
+        "tooltip-format": "CPU: {temperatureC}°C ({temperatureF}°F)",
     },
     "memory": {
         "format": "{used:0.1f}/{total:0.1f} GiB <span color=\"#000000\"> </span>",
@@ -68,18 +63,19 @@
         "interval": 30,
         "format": "{percentage_used}%  ",
         "path": "/",
-        "tooltip-format": "{used} de {total} usados ({percentage_used}%)"
+        "tooltip-format": "{used} de {total} usados ({percentage_used}%)",
+        "on-click": "nemo"
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}<span color=\"#000000\">󰂯</span>",
-        "format-bluetooth-muted": " {icon}",
+        "format-bluetooth-muted": "󰟎 {icon}",
         "format-muted": " {format_source}",
         "format-icons": {
             "headphone": "󰋎  ",
             "hands-free": "",
-            "headset": "",
+            "headset": "󰋋 ",
             "phone": "",
             "portable": "",
             "car": "",

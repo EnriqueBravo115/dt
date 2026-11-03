@@ -1,0 +1,132 @@
+/*
+ * Monokai para highlight.js
+ * Se engancha con: vim.g.mkdp_highlight_css = "/home/nullboy/.config/nvim/highlight.css"
+ * (reemplaza a app/_static/highlight.css del plugin)
+ */
+
+:root {
+    /* fondo de los bloques de codigo.
+       #2F333A = a juego con el code inline de preview.css
+       #272822 = el Monokai canonico */
+    --hljs-bg: #2F333A;
+
+    --hljs-fg: #f8f8f2;   /* texto base    */
+    --hljs-comment: #75715e;
+    --hljs-red: #f92672;  /* keywords, operadores */
+    --hljs-orange: #fd9353;
+    --hljs-purple: #ae81ff; /* numeros, constantes  */
+    --hljs-yellow: #e6db74; /* strings              */
+    --hljs-green: #a6e22e;  /* funciones, titulos   */
+    --hljs-cyan: #66d9ef;   /* tipos, builtins      */
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: var(--hljs-fg);
+  background: var(--hljs-bg);
+}
+
+/* comentarios */
+.hljs-comment,
+.hljs-quote {
+  color: var(--hljs-comment);
+  font-style: italic;
+}
+
+/* keywords y operadores */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-operator,
+.hljs-subst {
+  color: var(--hljs-red);
+}
+
+/* nombres de funcion / definiciones */
+.hljs-title,
+.hljs-title.function_,
+.hljs-section,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: var(--hljs-green);
+  font-weight: normal;
+}
+
+/* tipos, clases, builtins */
+.hljs-type,
+.hljs-class .hljs-title,
+.hljs-title.class_,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-tag {
+  color: var(--hljs-cyan);
+  font-style: italic;
+}
+
+/* parametros y atributos */
+.hljs-params,
+.hljs-variable.language_ {
+  color: var(--hljs-orange);
+  font-style: italic;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-property,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: var(--hljs-green);
+}
+
+/* numeros y constantes */
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-meta .hljs-keyword,
+.hljs-template-variable {
+  color: var(--hljs-purple);
+}
+
+/* strings */
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-char.escape_,
+.hljs-meta .hljs-string {
+  color: var(--hljs-yellow);
+}
+
+/* variables */
+.hljs-variable,
+.hljs-template-tag,
+.hljs-link {
+  color: var(--hljs-fg);
+}
+
+/* preprocesador / anotaciones */
+.hljs-meta,
+.hljs-meta .hljs-meta-string {
+  color: var(--hljs-comment);
+}
+
+/* diffs */
+.hljs-deletion {
+  color: var(--hljs-red);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-formula,
+.hljs-code {
+  color: var(--hljs-cyan);
+}

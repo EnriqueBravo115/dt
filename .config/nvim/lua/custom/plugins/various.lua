@@ -12,11 +12,4 @@ return {
   { "tpope/vim-surround",              event = { "BufReadPost", "BufNewFile" } },
   { "mfussenegger/nvim-jdtls",         ft = "java" },
   { "ThePrimeagen/harpoon",            keys = { "<leader>a", "<C-e>", "<C-h>", "<C-t>", "<C-n>", "<C-s>" } },
-  {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = true
-    -- use opts = {} for passing setup options
-    -- this is equivalent to setup({}) function
-  },
 }
