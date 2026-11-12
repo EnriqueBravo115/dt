@@ -7,6 +7,7 @@
     "margin-bottom": -15,
     "modules-left": [
         "hyprland/workspaces",
+        "mpd",
     ],
     "modules-center": [
         "clock",
@@ -28,6 +29,32 @@
      },
     "tray": {
         "spacing": 10,
+    },
+    "mpd": {
+        "server": "127.0.0.1",
+        "port": 6600,
+        "interval": 1,
+        "format": "{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S} <span color=\"#000000\">{stateIcon}</span> {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}",
+        "format-paused": "{artist} - {title} {elapsedTime:%M:%S}/{totalTime:%M:%S} <span color=\"#000000\">{stateIcon}</span> {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}",
+        "format-stopped": "Detenido <span color=\"#000000\">󰓛</span>",
+        "format-disconnected": "MPD <span color=\"#000000\">󰝛</span>",
+        "artist-len": 20,
+        "title-len": 30,
+        "state-icons": {
+            "playing": "",
+            "paused": ""
+        },
+        "consume-icons": { "on": "󰮯 " },
+        "random-icons": { "on": "󰒝 ", "off": "󰒞 " },
+        "repeat-icons": { "on": "󰑖 " },
+        "single-icons": { "on": "󰑘 " },
+        "tooltip-format": "{title}\n{artist} — {album}\n{elapsedTime:%M:%S} / {totalTime:%M:%S}  ·  {songPosition}/{queueLength}",
+        "tooltip-format-disconnected": "MPD desconectado",
+        "on-click": "mpc toggle",
+        "on-click-right": "kitty -e ncmpcpp",
+        "on-click-middle": "mpc stop",
+        "on-scroll-up": "mpc prev",
+        "on-scroll-down": "mpc next"
     },
     "clock": {
         "format-alt": "{:%d-%m-%Y}"

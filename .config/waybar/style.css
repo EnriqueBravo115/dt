@@ -45,6 +45,10 @@ button:hover {
     background-color: #B48EAD;
 }
 
+#mpd:hover {
+    background-color: #B48EAD;
+}
+
 #workspaces {
     background-color: transparent;
     padding: 0;
@@ -167,6 +171,33 @@ label:focus {
 }
 
 #pulseaudio.muted {
+    background-color: #F09383;
+    color: #000000;
+}
+
+#mpd {
+    background-color: #8FBCBB;
+    color: #000000;
+}
+
+#mpd.paused {
+    background-color: #8FBCBB;
+    background-image: linear-gradient(to right, #8FBCBB, #4F6F6E);
+    color: #000000;
+}
+
+/* el degradado es una imagen y taparía el color de hover */
+#mpd.paused:hover {
+    background-color: #B48EAD;
+    background-image: none;
+}
+
+#mpd.stopped {
+    background-color: #81A1C1;
+    color: #000000;
+}
+
+#mpd.disconnected {
     background-color: #F09383;
     color: #000000;
 }
